@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+{{ partial "head.html" . }}
+
+<body>
+  <div id="site-wrapper">
+    {{ partial "header.html" . }}
+
+    {{ $.Scratch.Set "current" .Permalink }}
+
+    <div class="container main">
+      <div class="row">
+        <div class="col-md-2 col-md-offset-2 side-menu">
+          {{ range .Site.Params.categories }}
+            {{ $.Scratch.Set "category" . }}
+
+            {{ range $.Site.Pages }}
+              {{ if eq .Path (printf "docs/%s/_index.md" ($.Scratch.Get "category")) }}
+                <span class="category {{ if eq ($.Scratch.Get "current") (printf "%soverview/" .Permalink) }}current{{ end }}">
+                  <a href="{{ .Permalink }}">{{ title ($.Scratch.Get "category") }}</a>
+                </span>
+              {{ end }}
+            {{ end }}
+
+            {{ range sort $.Site.Pages "Params.index" }}
+              {{ if eq .Params.category ($.Scratch.Get "category") }}
+                <span class="docpage {{ if eq ($.Scratch.Get "current") .Permalink }}current{{ end }}">
+                  <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </span>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </div>
+
+        <div class="col-md-8 content">
+          <article class="{{ .Type }}">
+            <section class="article-content">
+              {{ .Content }}
+            </section>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{ partial "footer.html" . }}
+</body>
+</html>

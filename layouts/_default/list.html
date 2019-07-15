@@ -1,0 +1,3 @@
+{{ with .GetPage (replace (printf "/%s" .Page.Path) "_index" "overview") }}
+  {{.Render}}
+{{end}}
