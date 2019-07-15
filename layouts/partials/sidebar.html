@@ -1,0 +1,7 @@
+{{ $permalink := .Permalink }}
+
+<div class="col-md-2 col-md-offset-2 side-menu">
+  {{ range $category := .Site.Params.categories }}
+    {{ partial "category.html" (dict "root" $ "category" $category "permalink" $permalink) }}
+  {{ end }}
+</div>

@@ -1,0 +1,15 @@
+{{ range .root.Site.Pages }}
+  {{ if eq .Path (printf "docs/%s/_index.md" $.category) }}
+    <span class="category {{ if eq $.permalink (printf "%soverview/" .Permalink) }}current{{ end }}">
+      <a href="{{ .Permalink }}">{{ title $.category }}</a>
+    </span>
+  {{ end }}
+{{ end }}
+
+{{ range sort .root.Site.Pages "Params.index" }}
+  {{ if eq .Params.category $.category }}
+    <span class="docpage {{ if eq $.permalink .Permalink }}current{{ end }}">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </span>
+  {{ end }}
+{{ end }}
