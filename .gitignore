@@ -1,3 +1,4 @@
 .s3cfg
+node_modules
 public
 resources
