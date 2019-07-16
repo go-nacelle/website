@@ -1,41 +1,15 @@
-body {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;
-}
-
-.navbar {
-  margin-bottom: 0;
-}
-
-.navbar-brand {
-  font-family: Lato, sans-serif;
-  font-weight: 300;
-}
-
-.jumbotron {
-  background-color: #92b5ba;
-  background-image: url("/images/banner.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-align: center;
-  font-family: Lato, sans-serif;
-  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 0px;
-  margin-bottom: 0px;
-  padding: 10px 0;
-}
+/* Stick Footer
+ * --------------------------------------------*/
 
 html, body {
   height: 100%;
   margin: 0;
 }
 
-pre {
-  border: 0;
-  background-color: #1e1e1e;
-}
-
 #site-wrapper {
   min-height: 100%;
   margin-bottom: -80px;
+  padding-bottom: 20px;
 }
 
 #site-wrapper:after {
@@ -56,6 +30,121 @@ footer {
   color: #9d9d9d;;
   padding-top: 30px;
   padding-bottom: 20px;
+}
+
+/* Bootstrap Overrides
+ * --------------------------------------------*/
+
+body {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 14px;
+	font-weight: 400;
+	line-height: 1.4;
+}
+
+pre {
+  border: 0;
+  background-color: #1e1e1e;
+}
+
+table {
+  margin-bottom: 1rem;
+}
+
+table th {
+  border-top: 1px solid #dee2e6;
+  border-bottom: 2px solid #dee2e6;
+}
+
+table th,
+table td {
+  padding: .75rem;
+}
+
+table tbody tr:nth-of-type(2n+1) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Navbar
+ * --------------------------------------------*/
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-brand {
+  font-family: Lato, sans-serif;
+  font-weight: 300;
+}
+
+/* Side Menu
+ * --------------------------------------------*/
+
+.side-menu h4 {
+	font-weight: 700;
+}
+
+.side-menu span {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.side-menu .category:not(:first-child) {
+  margin-top: 20px;
+}
+
+.side-menu .docpage {
+  padding-left: 20px;
+}
+
+.side-menu .current::before {
+  content: "\f054";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  font-size: 1rem;
+  margin-left: -10px;
+  padding-right: 5px;
+}
+
+.side-menu .current a {
+  color: #666;
+}
+
+.side-menu .current a:hover {
+  text-decoration: none;
+}
+
+/* Doc Pages
+ * --------------------------------------------*/
+
+.sidebar, .docs {
+  padding-top: 20px;
+}
+
+.docs h1 {
+  margin-top: 10px;
+}
+
+.docmeta {
+  color: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 1rem;
+  padding: 5px 0;
+}
+
+/* Landing Page
+ * --------------------------------------------*/
+
+.jumbotron {
+  background-color: #92b5ba;
+  background-image: url("/images/banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  font-family: Lato, sans-serif;
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 0px;
+  margin-bottom: 0px;
+  padding: 10px 0;
 }
 
 .jumbotron img {
@@ -122,74 +211,4 @@ footer {
 
 .content {
   line-height: 1.6em;
-}
-
-@media (min-width: 992px) {
-  .main {
-    padding: 45px 0;
-  }
-
-  .content {
-    padding-left: 75px;
-    border-left: 0.5px solid #cccccc;
-  }
-
-  .side-menu span {
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  .side-menu .category:not(:first-child) {
-    margin-top: 20px;
-  }
-
-  .side-menu .docpage {
-    padding-left: 20px;
-  }
-
-  .side-menu .current::before {
-    content: "\f054";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 600;
-    font-size: 1rem;
-    margin-left: -10px;
-    padding-right: 5px;
-  }
-
-  .side-menu .current a {
-    color: #666;
-  }
-
-  .side-menu .current a:hover {
-    text-decoration: none;
-  }
-}
-
-@media (max-width: 992px) {
-  .main {
-    padding: 15px 0;
-  }
-
-  .content {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .side-menu {
-    text-align: center;
-  }
-
-  .side-menu .category:not(:first-child):before {
-    content: '\A';
-    white-space: pre;
-  }
-
-  .side-menu .category:after {
-    content: ':';
-  }
-
-  .side-menu .docpage + .docpage:before {
-    content: '\00b7';
-    padding-right: 2px;
-  }
 }
