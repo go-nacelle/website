@@ -57,7 +57,7 @@
         <div class="col-md-4 col-sm-8 col-xs-12 feature-item">
           <i class="icon pull-left fas fa-file-code"></i>
           <p>
-            <a href="/docs/libraries">Base Libraries</a>:
+            <a href="/docs/base-processes">Base Processes</a>:
             Nacelle provides skeleton processes suitable for HTTP servers, gRPC servers, AWS Lambda servers, and generic worker processes.
           </p>
         </div>
