@@ -4,7 +4,7 @@
 {{ partial "head.html" . }}
 
 <body>
-  <div id="site-wrapper">
+  <div id="site-wrapper" class="landing">
     {{ partial "header.html" . }}
 
     <div class="jumbotron">
@@ -67,21 +67,6 @@
           <p>
             <a href="/docs/frameworks">Frameworks</a>:
             Nacelle forms the base for the Chevron HTTP server framework and the Scarf gRPC server framework.
-          </p>
-        </div>
-      </div>
-
-      <div class="row top-hr">
-        <div class="col-md-12"><hr></div>
-      </div>
-
-      <div class="row open-source">
-        <div class="col-md-12">
-          <h1><i class="fab fa-github"></i></h1>
-          <p>
-            Nacelle is 100% open source.
-            <br />
-            All components are available under the <a href="https://opensource.org/licenses/MIT">MIT License</a> on <a href="https://github.com/go-nacelle">GitHub</a>.
           </p>
         </div>
       </div>

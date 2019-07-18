@@ -8,7 +8,7 @@ html, body {
 
 #site-wrapper {
   min-height: 100%;
-  margin-bottom: -80px;
+  margin-bottom: -40px;
   padding-bottom: 20px;
 }
 
@@ -18,17 +18,16 @@ html, body {
 }
 
 footer, #site-wrapper:after {
-  height: 80px;
+  height: 40px;
 }
 
 footer {
   text-align: center;
-  background-color: #222;
+  background-color: #92b5ba;
   font-weight: 300;
   font-size: 16px;
-  color: #9d9d9d;;
-  padding-top: 30px;
-  padding-bottom: 20px;
+  color: #ffffff;
+  padding-top: 7px;
 }
 
 /* Bootstrap Overrides
@@ -70,6 +69,21 @@ table tbody tr:nth-of-type(2n+1) {
 
 .navbar {
   margin-bottom: 0;
+}
+
+.navbar {
+  border-bottom: 0px;
+  background-color: #92b5ba;
+}
+
+.landing .navbar {
+  background-color: rgba(0, 0, 0, 0);
+  border-bottom: 0;
+}
+
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
 }
 
 .navbar-brand {
@@ -136,6 +150,7 @@ table tbody tr:nth-of-type(2n+1) {
  * --------------------------------------------*/
 
 .jumbotron {
+  margin-top: -50px;
   background-color: #92b5ba;
   background-image: url("/images/banner.png");
   background-repeat: no-repeat;
@@ -160,28 +175,6 @@ table tbody tr:nth-of-type(2n+1) {
 
 .jumbotron .container {
   margin-bottom: 10px 0;
-}
-
-.top-hr {
-  margin-top: 10px;
-}
-
-.open-source {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.open-source h1 {
-  margin-top: 0;
-  font-weight: 300;
-}
-
-.open-source p {
-  width: 50%;
-  margin: auto;
-  font-size: 20px;
 }
 
 .icon {
