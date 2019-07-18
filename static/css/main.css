@@ -18,11 +18,10 @@ html, body {
 }
 
 footer, #site-wrapper:after {
-  height: 70px;
+  height: 80px;
 }
 
 footer {
-  height: 80px;
   text-align: center;
   background-color: #222;
   font-weight: 300;
@@ -49,6 +48,7 @@ pre {
 
 table {
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 table th {
