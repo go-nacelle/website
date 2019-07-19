@@ -91,6 +91,15 @@ table tbody tr:nth-of-type(2n+1) {
   font-weight: 300;
 }
 
+.navbar-collapse {
+  border: 0;
+}
+
+.landing .collapse.in,
+.landing .collapsing {
+  position: absolute;
+}
+
 /* Side Menu
  * --------------------------------------------*/
 
