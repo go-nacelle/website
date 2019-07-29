@@ -4,7 +4,7 @@ executors:
   node:
     docker:
       - image: circleci/node:12.7.0-stretch
-    working_directory: /tmp
+    working_directory: ~/website
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
       - run: ./hugo
       - run: npm run minify
       - persist_to_workspace:
-          root: workspace
+          root: /tmp/workspace
           paths:
             - public
 
