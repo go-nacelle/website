@@ -31,6 +31,16 @@ jobs:
     steps:
       - attach_workspace:
           at: .
+      - run:
+          command: |
+            sudo apt-get update
+            sudo apt-get install python-setuptools
+      - run:
+          command: |
+            git clone https://github.com/s3tools/s3cmd.git /tmp/s3cmd
+            cd /tmp/s3cmd/
+            python setup.py install
+            cd -
       - run: ./bin/deploy.sh
 
 workflows:
