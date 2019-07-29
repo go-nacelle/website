@@ -1,9 +1,13 @@
 version: 2
-jobs:
-  build:
+executors:
+  node:
     docker:
       - image: circleci/node:12.7.0-stretch
-    working_directory: ~/website
+    working_directory: /tmp
+
+jobs:
+  build:
+    executor: node
     steps:
       - checkout
       - run: npm install
@@ -14,12 +18,16 @@ jobs:
             rm hugo.tar.gz
       - run: ./hugo
       - run: npm run minify
+      - persist_to_workspace:
+          root: workspace
+          paths:
+            - public
 
   deploy:
-    docker:
-      - image: alpine:3.8
-    working_directory: ~/website
+    executor: node
     steps:
+      - attach_workspace:
+          at: /tmp/workspace
       - run: ./bin/deploy.sh
 
 workflows:
