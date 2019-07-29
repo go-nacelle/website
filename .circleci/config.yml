@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:12.7.0-stretch
+    working_directory: ~/website
+    steps:
+      - checkout
+      - run: npm install
+      - run: hugo
+      - run: npm run minify
+
+  deploy:
+    docker:
+      - image: alpine:3.8
+    working_directory: ~/website
+    steps:
+      - run: ./bin/deploy.sh
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
