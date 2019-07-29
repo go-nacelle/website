@@ -21,14 +21,16 @@ jobs:
       - run: npm run minify
       - run: mkdir /tmp/workspace
       - persist_to_workspace:
-          root: /tmp/workspace
-          path: .
+          root: .
+          paths:
+            - public
+            - bin
 
   deploy:
     executor: node
     steps:
       - attach_workspace:
-          at: /tmp/workspace
+          at: .
       - run: ./bin/deploy.sh
 
 workflows:
