@@ -19,6 +19,7 @@ jobs:
             rm hugo.tar.gz
       - run: ./hugo
       - run: npm run minify
+      - run: mkdir /tmp/workspace
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
