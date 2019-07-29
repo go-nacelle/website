@@ -1,14 +1,10 @@
 version: 2.1
 
-executors:
-  node:
+jobs:
+  build:
     docker:
       - image: circleci/node:12.7.0-stretch
     working_directory: ~/website
-
-jobs:
-  build:
-    executor: node
     steps:
       - checkout
       - run: npm install
@@ -27,7 +23,9 @@ jobs:
             - bin
 
   deploy:
-    executor: node
+    docker:
+      - image: alpine:3.8
+    working_directory: ~/website
     steps:
       - attach_workspace:
           at: .
