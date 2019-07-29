@@ -12,7 +12,7 @@ jobs:
             curl -L -o hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v0.56.1/hugo_0.56.1_Linux-64bit.tar.gz
             tar -xvzf hugo.tar.gz hugo
             rm hugo.tar.gz
-      - run: hugo
+      - run: ./hugo
       - run: npm run minify
 
   deploy:
