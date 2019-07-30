@@ -13,11 +13,14 @@ jobs:
       - checkout
       - run: npm install
       - run:
+          name: Download hugo
           command: |
-            curl -L -o hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v0.56.1/hugo_0.56.1_Linux-64bit.tar.gz
+            version="0.56.1"
+            curl -L -o hugo.tar.gz "https://github.com/gohugoio/hugo/releases/download/v${version}/hugo_${version}_Linux-64bit.tar.gz"
             tar -xvzf hugo.tar.gz hugo
+            sudo mv hugo /usr/local/bin/hugo
             rm hugo.tar.gz
-      - run: ./hugo
+      - run: hugo
       - run: npm run minify
       - run: mkdir /tmp/workspace
       - persist_to_workspace:
@@ -32,17 +35,19 @@ jobs:
       - attach_workspace:
           at: .
       - run:
+          name: Install s3cmd
           command: |
             sudo apt-get update
             sudo apt-get install python-setuptools
-      - run:
-          command: |
+
             git clone https://github.com/s3tools/s3cmd.git /tmp/s3cmd
             cd /tmp/s3cmd/
             sudo python setup.py install
             cd -
             sudo rm -rf /tmp/s3cmd
-      - run: ./bin/deploy.sh
+      - run:
+          name: Deploy
+          command: ./bin/deploy.sh
 
 workflows:
   version: 2
