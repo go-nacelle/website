@@ -40,7 +40,11 @@ commands:
             message="Sync documentation from go-nacelle/<< parameters.repo >>."
 
             cd website
-            git checkout -b "${branch}"
-            git commit -am "${message}"
-            git push origin "${branch}"
-            hub pull-request -m "${message}"
+
+            # Don't make a PR unless it would create a new branch and commit
+            if [[ -z $(git ls-remote --heads https://github.com/go-nacelle/website "${branch}") ]];
+              git checkout -b "${branch}"
+              git commit -am "${message}"
+              git push origin "${branch}"
+              hub pull-request -m "${message}"
+            fi
