@@ -38,7 +38,7 @@ The following is a minimal CircleCI configuration to run the orb for a given rep
 version: 2.1
 
 orbs:
-  docs: nacelle/docs@0.1.2
+  docs: nacelle/docs@0.1.3
 
 jobs:
   update_docs:

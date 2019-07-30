@@ -42,7 +42,7 @@ commands:
             cd website
 
             # Don't make a PR unless it would create a new branch and commit
-            if [[ -z $(git ls-remote --heads https://github.com/go-nacelle/website "${branch}") ]];
+            if [[ -z $(git ls-remote --heads https://github.com/go-nacelle/website "${branch}") ]]; then
               git checkout -b "${branch}"
               git commit -am "${message}"
               git push origin "${branch}"
