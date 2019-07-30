@@ -45,6 +45,15 @@ pre {
   background-color: #1e1e1e;
 }
 
+dd + dt {
+  margin-top: 10px;
+}
+
+dd {
+  margin-left: 40px;
+  padding-right: 40px;
+}
+
 table {
   margin-bottom: 1rem;
   width: 100%;
