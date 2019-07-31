@@ -1,7 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-function refresh {
-    local file=$(echo "$1" | sed 's#public/##' | sed 's#/index.html$##')
+function refresh() {
+    # Remove root prefix and the index.html suffix (if any)
+    file=$(echo "$1" | sed 's#public/##' | sed 's#/index.html$##')
     echo "updating cache for $file"
     curl --silent -H 'X-No-Cache: true' "https://nacelle.dev/$file" > /dev/null
 }
