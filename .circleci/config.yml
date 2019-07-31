@@ -48,6 +48,9 @@ jobs:
       - run:
           name: Deploy
           command: ./bin/deploy.sh
+      - run:
+          name: Bust cache
+          command: ./bin/bust-cache.sh
 
 workflows:
   version: 2

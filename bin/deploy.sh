@@ -10,4 +10,5 @@ host_base = sfo2.digitaloceanspaces.com
 host_bucket = %(bucket)s.sfo2.digitaloceanspaces.com
 EOF
 
+s3cmd --config .s3cfg del public
 s3cmd --config .s3cfg put public s3://laniakea/nacelle/ --acl-public --recursive
