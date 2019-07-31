@@ -1,8 +1,8 @@
 #!/bin/sh
 
-function refresh() {
+function refresh {
     local file=$(echo "$1" | sed 's#public/##' | sed 's#/index.html$##')
-    echo "bypassing $file"
+    echo "updating cache for $file"
     curl --silent -H 'X-No-Cache: true' "https://nacelle.dev/$file" > /dev/null
 }
 
