@@ -15,4 +15,9 @@ s3cmd --config .s3cfg del s3://laniakea/nacelle/public
 s3cmd --config .s3cfg put public s3://laniakea/nacelle/ --acl-public --recursive
 
 # Set proper content-types for css objects
-s3cmd --recursive modify --add-header='content-type':'text/css' --exclude '' --include '.css' s3://laniakea/nacelle/
+s3cmd --config .s3cfg \
+    --recursive modify \
+    --add-header='content-type':'text/css' \
+    --exclude '' \
+    --include '.css' \
+    s3://laniakea/nacelle/
