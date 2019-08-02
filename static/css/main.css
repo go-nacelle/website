@@ -104,9 +104,38 @@ table tbody tr:nth-of-type(2n+1) {
   border: 0;
 }
 
-.landing .collapse.in,
-.landing .collapsing {
+.navbar-toggle {
+  border: 0;
+}
+
+.navbar-collapse {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.navbar-inverse .navbar-toggle:hover {
+  background-color: inherit;
+}
+
+.navbar-inverse .collapse.in,
+.navbar-inverse .collapsing {
   position: absolute;
+}
+
+.navbar-inverse .collapse.in,
+.navbar-inverse .collapsing {
+  right: 0;
+  width: 100px;
+  text-align: center;
+}
+
+.navbar-collapse ul {
+  margin-top: 0;
+  background-color: #92b5ba;
+}
+
+.landing .navbar-collapse ul {
+  background-color: inherit;
 }
 
 /* Side Menu
@@ -125,7 +154,7 @@ table tbody tr:nth-of-type(2n+1) {
   margin-top: 20px;
 }
 
-.side-menu .docpage {
+.side-menu div .docpage {
   padding-left: 20px;
 }
 
@@ -144,6 +173,39 @@ table tbody tr:nth-of-type(2n+1) {
 
 .side-menu .current a:hover {
   text-decoration: none;
+}
+
+@media screen and (max-width: 991px) {
+  .collapser:hover {
+    text-decoration: none;
+  }
+
+  .collapser:after {
+    content: "\f068";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    font-size: .95rem;
+    padding-left: 5px;
+    vertical-align: middle;
+  }
+
+  .collapser.collapsed:after {
+    content: "\f067";
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .collapse {
+    display: block;
+    height: auto !important;
+    visibility: visible;
+  }
+
+  .collapsing{
+    position: relative;
+    height: unset !important;
+    overflow: hidden;
+  }
 }
 
 /* Doc Pages
