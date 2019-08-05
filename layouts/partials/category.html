@@ -1,4 +1,5 @@
 {{ $.root.Scratch.Set "isCollapsed" false }}
+
 {{ range sort .root.Site.Pages "Params.index" }}
   {{ if eq .Params.category $.category }}
     {{ if eq $.permalink .Permalink }}
@@ -11,12 +12,12 @@
   {{ if eq .Path (printf "docs/%s/_index.md" $.category) }}
     <span class="category {{ if eq $.permalink (printf "%soverview/" .Permalink) }}current{{ end }}">
       <a href="{{ .Permalink }}">{{ title $.category }}</a>
-      <a data-toggle="collapse" data-parent="sidebar" href="#collapse-{{ replace $.category " " "-" }}" class="collapser {{ if not ($.root.Scratch.Get "isCollapsed") }}collapsed{{end}}"></a>
+      <a data-toggle="collapse" href="#collapse-{{ replace $.category " " "-" }}" class="collapser {{ if not ($.root.Scratch.Get "isCollapsed") }}collapsed{{end}}"></a>
     </span>
   {{ end }}
 {{ end }}
 
-<div id="collapse-{{ replace $.category " " "-" }}" class="collapse {{ if ($.root.Scratch.Get "isCollapsed") }}in{{end}}">
+<div id="collapse-{{ replace $.category " " "-" }}" class="collapse {{ if ($.root.Scratch.Get "isCollapsed") }}show{{end}}">
   {{ range sort .root.Site.Pages "Params.index" }}
     {{ if eq .Params.category $.category }}
 
