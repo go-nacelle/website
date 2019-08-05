@@ -229,3 +229,11 @@ footer {
   padding-left: 10px;
   border-left: 1px solid #ccc;
 }
+
+/* Not Found
+ * --------------------------------------------*/
+
+.notfound {
+  text-align: center;
+  padding-top: 50px;
+}
