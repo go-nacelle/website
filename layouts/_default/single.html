@@ -1,33 +1,10 @@
 <!DOCTYPE html>
 
 <html lang="en">
-{{ partial "head.html" . }}
+  {{ partial "head.html" . }}
 
-<body>
-  <div id="site-wrapper">
-    {{ partial "header.html" . }}
-
-    <main role="main">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-3">
-            <div class="sidebar">
-              {{ partial "sidebar.html" . }}
-            </div>
-          </div>
-
-          <div class="col-12 col-md-9">
-            <article class="{{ .Type }}">
-              <section class="article-content">
-                {{ .Content }}
-              </section>
-            </article>
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  {{ partial "footer.html" . }}
-</body>
+  <body>
+    {{ partial (cond (eq .Title "") "landing.html" "single.html") . }}
+    {{ partial "footer.html" . }}
+  </body>
 </html>
