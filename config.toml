@@ -3,6 +3,11 @@ baseurl = 'https://nacelle.dev'
 title = 'Nacelle'
 disableKinds = ['taxonomy', 'taxonomyTerm', 'RSS']
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
   author = 'Eric Fritz'
   dateformat = '01/02/2006'
