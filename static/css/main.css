@@ -230,6 +230,16 @@ footer {
   border-left: 1px solid #ccc;
 }
 
+.callout-container {
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.callout {
+  width: 100%;
+  text-align: center;
+}
+
 /* Not Found
  * --------------------------------------------*/
 
