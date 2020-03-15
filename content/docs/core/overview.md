@@ -4,7 +4,7 @@ title = "Core"
 
 # Core Functionality
 
-{{% docmeta "nacelle" %}}
+{{< docmeta "nacelle" >}}
 
 <!-- Fold -->
 

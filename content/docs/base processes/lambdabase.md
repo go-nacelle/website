@@ -6,7 +6,7 @@ index = 3
 
 # Base AWS Lambda Server
 
-{{% docmeta "lambdabase" %}}
+{{< docmeta "lambdabase" >}}
 
 <!-- Fold -->
 

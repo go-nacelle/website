@@ -6,7 +6,7 @@ index = 3
 
 # Configuration Management
 
-{{% docmeta "config" %}}
+{{< docmeta "config" >}}
 
 <!-- Fold -->
 

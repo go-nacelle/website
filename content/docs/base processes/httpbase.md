@@ -6,7 +6,7 @@ index = 1
 
 # Base HTTP Server
 
-{{% docmeta "httpbase" %}}
+{{< docmeta "httpbase" >}}
 
 <!-- Fold -->
 

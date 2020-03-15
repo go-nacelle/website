@@ -6,7 +6,7 @@ index = 2
 
 # Base gRPC Server
 
-{{% docmeta "grpcbase" %}}
+{{< docmeta "grpcbase" >}}
 
 <!-- Fold -->
 

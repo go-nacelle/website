@@ -6,7 +6,7 @@ index = 2
 
 # Process Management
 
-{{% docmeta "process" %}}
+{{< docmeta "process" >}}
 
 <!-- Fold -->
 

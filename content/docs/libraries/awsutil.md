@@ -6,7 +6,7 @@ index = 1
 
 # AWS Utilities
 
-{{% docmeta "awsutil" %}}
+{{< docmeta "awsutil" >}}
 
 <!-- Fold -->
 

@@ -6,7 +6,7 @@ index = 4
 
 # Dependency Injection
 
-{{% docmeta "service" %}}
+{{< docmeta "service" >}}
 
 <!-- Fold -->
 

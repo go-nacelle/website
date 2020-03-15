@@ -6,7 +6,7 @@ index = 5
 
 # Logging
 
-{{% docmeta "log" %}}
+{{< docmeta "log" >}}
 
 <!-- Fold -->
 

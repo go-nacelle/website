@@ -6,7 +6,7 @@ index = 1
 
 # Chevron HTTP Framework
 
-{{% docmeta "chevron" %}}
+{{< docmeta "chevron" >}}
 
 <!-- Fold -->
 

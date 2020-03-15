@@ -6,7 +6,7 @@ index = 2
 
 # Scarf gRPC Framework
 
-{{% docmeta "scarf" %}}
+{{< docmeta "scarf" >}}
 
 <!-- Fold -->
 

@@ -6,7 +6,7 @@ index = 2
 
 # Postgres Utilities
 
-{{% docmeta "pgutil" %}}
+{{< docmeta "pgutil" >}}
 
 <!-- Fold -->
 
