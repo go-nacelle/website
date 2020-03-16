@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 declare -A repos
-repos["nacelle"]="./content/docs/core/overview.md"
+repos["nacelle"]="./content/docs/core/overview.md:docs/docs.md,./content/getting-started/overview.md:docs/getting-started.md"
 repos["config"]="./content/docs/core/config.md"
 repos["log"]="./content/docs/core/log.md"
 repos["process"]="./content/docs/core/process.md"
@@ -16,10 +16,22 @@ repos["chevron"]="./content/docs/frameworks/chevron.md"
 repos["scarf"]="./content/docs/frameworks/scarf.md"
 
 function add_content() {
-    echo "Updating $2"
-    header=`cat "${2}" | sed '/<!-- Fold -->/q'`
-    content=`curl -s "https://raw.githubusercontent.com/go-nacelle/${1}/master/README.md" | sed '1,/---/d'`
-    echo -e "${header}\n${content}" > "${2}"
+    declare -a targets
+    declare -a target_and_source
+
+    IFS=','
+    read -r -a targets <<< "$2"
+    for element in "${targets[@]}"; do
+        IFS=':'
+        read -r -a target_and_source <<< "$element"
+
+        target=${target_and_source[0]}
+        source=${target_and_source[1]:-README.md}
+
+        header=`cat "${target}" | sed '/<!-- Fold -->/q'`
+        content=`curl -s "https://raw.githubusercontent.com/go-nacelle/${1}/master/${source}" | sed '1,/---/d'`
+        echo -e "${header}\n${content}" > "${target}"
+    done
 }
 
 repo=${1:-"all"}
