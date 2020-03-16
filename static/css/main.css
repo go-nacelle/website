@@ -161,11 +161,11 @@ footer {
 /* Doc Pages
  * --------------------------------------------*/
 
-.sidebar, .docs {
+.sidebar, .article-content {
   padding-top: 20px;
 }
 
-.docs {
+.article-content {
   line-height: 1.6em;
 }
 
