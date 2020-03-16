@@ -8,12 +8,6 @@ title = "Core"
 
 <!-- Fold -->
 
-This repository is the meta-package that combine the core framework behaviors: the population of [configuration](https://nacelle.dev/docs/core/config) structs, the injection of [dependencies](https://nacelle.dev/docs/core/service), the initialization and supervision of [processes](https://nacelle.dev/docs/core/process), and the initialization of [logging](https://nacelle.dev/docs/core/log). Types, variables, constants, and functions defined by these packages are aliased here, and should be imported from `github.com/go-nacelle/nacelle`.
-
-### Bootstrapping
-
-This package provides a common [bootstrapper](https://godoc.org/github.com/go-nacelle/nacelle#Bootstrapper) object that initializes and supervises the core framework behaviors.
-
 Applications written with nacelle should have a common entrypoint, as follows. The application-specific functionality is passed to a boostrapper on construction as a reference to a function that populates a [process container](https://nacelle.dev/docs/core/process). The `BootAndExit` function initializes and supervises the application, blocks until the application shut down, then calls `os.Exit` with the appropriate status code. A symmetric function called `Boot` will perform the same behavior, but will return the integer status code instead of calling `os.Exit`.
 
 ```go
