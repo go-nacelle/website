@@ -138,7 +138,7 @@ footer {
   }
 
   .collapser:after {
-    content: "\f068";
+    content: "\f078";
     font-family: "Font Awesome 5 Free";
     font-weight: 600;
     font-size: .5rem;
@@ -147,7 +147,7 @@ footer {
   }
 
   .collapser.collapsed:after {
-    content: "\f067";
+    content: "\f054";
   }
 }
 
