@@ -37,8 +37,7 @@ func (i *Initializer) Init(config nacelle.Config, server *http.Server) error {
     server.Handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
         value := atomic.AddUint32(&i.requests)
         w.WriteHeader(http.StatusOK)
-        w.Write([]byte(fmt.Sprintf("Hello, #%d!
-", value)))
+        w.Write([]byte(fmt.Sprintf("Hello, #%d!\n", value)))
     })
 
     return nil
@@ -53,8 +52,7 @@ A simple server initializer stuct that does not need additional methods, state, 
 ServerInitializerFunc(func(config nacelle.Config, server *http.Server) error {
     server.Handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
         w.WriteHeader(http.StatusOK)
-        w.Write([]byte("Hello, World!
-"))
+        w.Write([]byte("Hello, World!\n"))
     })
 
     return nil

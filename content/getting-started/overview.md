@@ -80,8 +80,7 @@ func (s *server) Init(config nacelle.Config) error {
     s.server = &http.Server{}
     s.server.Handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
         w.WriteHeader(http.StatusOK)
-        w.Write([]byte("Hello, World!
-"))
+        w.Write([]byte("Hello, World!\n"))
     })
     return nil
 }
@@ -184,8 +183,7 @@ s.server.Handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request)
     }
 
     w.WriteHeader(http.StatusOK)
-    w.Write([]byte(fmt.Sprintf("Hello, #%d!
-", count)))
+    w.Write([]byte(fmt.Sprintf("Hello, #%d!\n", count)))
 })
 ```
 
