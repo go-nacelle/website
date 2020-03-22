@@ -80,6 +80,9 @@ footer {
 .navbar {
   border-bottom: 0px;
   background-color: #92b5ba;
+  background-image: url("/images/banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .navbar-inverse .navbar-brand,
@@ -184,6 +187,7 @@ footer {
  * --------------------------------------------*/
 
 .landing .navbar {
+  background-image: none;
   background-color: rgba(0, 0, 0, 0);
   border-bottom: 0;
 }
