@@ -30,7 +30,8 @@ function add_content() {
 
         header=`cat "${target}" | sed '/<!-- Fold -->/q'`
         content=`curl -s "https://raw.githubusercontent.com/go-nacelle/${1}/master/${source}" | sed '1,/---/d'`
-        echo -e "${header}\n${content}" > "${target}"
+        echo "${header}" > "${target}"
+        echo "${content}" >> "${target}"
     done
 }
 
