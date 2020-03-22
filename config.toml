@@ -8,12 +8,15 @@ disableKinds = ['taxonomy', 'taxonomyTerm', 'RSS']
     [markup.goldmark.renderer]
       unsafe = true
 
+  [markup.highlight]
+    codeFences = true
+    style = "github"
+    lineNos = true
+    noClasses = true
+
 [params]
   author = 'Eric Fritz'
   dateformat = '01/02/2006'
   index_page = '/landing'
   resources_root = 'https://assets.nacelle.dev'
   categories = ['core', 'frameworks', 'base processes', 'libraries']
-
-[params.highlight]
-  languages = ['go', 'dockerfile']
