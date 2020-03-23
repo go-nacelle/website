@@ -211,31 +211,17 @@ footer {
   color: #fff;
 }
 
-.icon {
-  font-size: 2rem;
-  height: 100px;
-  margin-right: 10px;
+.features .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.feature-icon {
+  padding: 1rem 0;
   text-align: center;
-  padding-top: 20px;
-  width: 60px;
-}
-
-.feature-item {
-  color: #444;
-  font-size: 21px;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  padding-top: 10px;
-}
-
-.feature-item p {
-  color: #6d7986;
-  font-size: 14px;
-  line-height: 1.8;
-  margin: 0;
-  width: calc(100% - 70px);
-  padding-left: 10px;
-  border-left: 1px solid #ccc;
+  font-size: 5em;
 }
 
 .callout-container {
