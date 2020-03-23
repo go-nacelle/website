@@ -1,6 +1,11 @@
 +++
-title = "Getting Started"
+title = "Quickstart"
+category = "Quickstart"
 +++
+
+# Quickstart
+
+For a full example application, see the [example repository](https://github.com/go-nacelle/example) in this project.
 
 <!-- Fold -->
 

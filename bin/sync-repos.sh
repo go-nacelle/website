@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 declare -A repos
-repos["nacelle"]="./content/docs/core/overview.md:docs/docs.md,./content/getting-started/overview.md:docs/getting-started.md"
+repos["nacelle"]="./content/docs/core/overview.md:docs/docs.md,./content/docs/quickstart/overview.md:docs/getting-started.md"
 repos["config"]="./content/docs/core/config.md"
 repos["log"]="./content/docs/core/log.md"
 repos["process"]="./content/docs/core/process.md"
