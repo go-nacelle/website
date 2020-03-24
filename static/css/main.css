@@ -52,7 +52,7 @@ table tbody tr:nth-of-type(2n+1) {
 
 #site-wrapper {
   min-height: 100%;
-  margin-bottom: -40px;
+  margin-bottom: -100px;
   padding-bottom: 20px;
 }
 
@@ -62,16 +62,22 @@ table tbody tr:nth-of-type(2n+1) {
 }
 
 footer, #site-wrapper:after {
-  height: 40px;
+  height: 100px;
 }
 
 footer {
   text-align: center;
   background-color: #92b5ba;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 14px;
   color: #ffffff;
-  padding-top: 7px;
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  footer {
+    padding-top: 10px;
+  }
 }
 
 /* Navbar
