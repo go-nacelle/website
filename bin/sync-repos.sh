@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
 declare -A repos
-repos["nacelle"]="./content/docs/core/overview.md:docs/docs.md,./content/docs/quickstart/overview.md:docs/getting-started.md"
+repos["awsutil"]="./content/docs/libraries/awsutil.md"
+repos["chevron"]="./content/docs/frameworks/chevron.md"
 repos["config"]="./content/docs/core/config.md"
-repos["log"]="./content/docs/core/log.md"
-repos["process"]="./content/docs/core/process.md"
-repos["service"]="./content/docs/core/service.md"
 repos["grpcbase"]="./content/docs/base processes/grpcbase.md"
 repos["httpbase"]="./content/docs/base processes/httpbase.md"
 repos["lambdabase"]="./content/docs/base processes/lambdabase.md"
-repos["workerbase"]="./content/docs/base processes/workerbase.md"
-repos["awsutil"]="./content/docs/libraries/awsutil.md"
+repos["log"]="./content/docs/core/log.md"
+repos["nacelle"]="./content/docs/core/overview.md:docs/docs.md,./content/docs/quickstart/overview.md:docs/getting-started.md"
 repos["pgutil"]="./content/docs/libraries/pgutil.md"
-repos["chevron"]="./content/docs/frameworks/chevron.md"
+repos["process"]="./content/docs/core/process.md"
 repos["scarf"]="./content/docs/frameworks/scarf.md"
+repos["service"]="./content/docs/core/service.md"
+repos["workerbase"]="./content/docs/base processes/workerbase.md"
 
 function add_content() {
     declare -a targets

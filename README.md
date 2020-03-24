@@ -10,23 +10,24 @@ Running `hugo serve` will start a local live-reload server on port 1313. Editing
 
 Many of the markdown files contain only a manually-written header followed by the token `<!-- Fold -->`. These files will be auto-updated based on the README content for that project.
 
-Run `./sync-repos.sh` to update the content *below the fold* for each of these markdown files with the README content presently on GitHub. The following repositories in the `go-nacelle` organization will be synchronized with the associated markdown file.
+Run `./sync-repos.sh` to update the content *below the fold* in each markdown file with the content of the markdown file on GitHub. The following repositories in the `go-nacelle` organization will be synchronized.
 
-| Repository | DocumentationPath |
-| ---------- | ----------------- |
-| awsutil    | ./content/docs/libraries/awsutil.md |
-| chevron    | ./content/docs/frameworks/chevron.md |
-| config     | ./content/docs/core/config.md |
-| grpcbase   | ./content/docs/base processes/grpcbase.md |
-| httpbase   | ./content/docs/base processes/httpbase.md |
-| lambdabase | ./content/docs/base processes/lambdabase.md |
-| log        | ./content/docs/core/log.md |
-| nacelle    | ./content/docs/core/overview.md |
-| pgutil     | ./content/docs/libraries/pgutil.md |
-| process    | ./content/docs/core/process.md |
-| scarf      | ./content/docs/frameworks/scarf.md |
-| service    | ./content/docs/core/service.md |
-| workerbase | ./content/docs/base processes/workerbase.md |
+| Repository | Source path             | Documentation path |
+| ---------- | ----------------------- | ------------------ |
+| awsutil    | README.md               | ./content/docs/libraries/awsutil.md |
+| chevron    | README.md               | ./content/docs/frameworks/chevron.md |
+| config     | README.md               | ./content/docs/core/config.md |
+| grpcbase   | README.md               | ./content/docs/base processes/grpcbase.md |
+| httpbase   | README.md               | ./content/docs/base processes/httpbase.md |
+| lambdabase | README.md               | ./content/docs/base processes/lambdabase.md |
+| log        | README.md               | ./content/docs/core/log.md |
+| nacelle    | docs/docs.md            | ./content/docs/core/overview.md |
+| nacelle    | docs/getting-started.md | ./content/docs/quickstart/overview.md |
+| pgutil     | README.md               | ./content/docs/libraries/pgutil.md |
+| process    | README.md               | ./content/docs/core/process.md |
+| scarf      | README.md               | ./content/docs/frameworks/scarf.md |
+| service    | README.md               | ./content/docs/core/service.md |
+| workerbase | README.md               | ./content/docs/base processes/workerbase.md |
 
 ### Enabling Automatic Documentation
 
