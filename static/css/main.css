@@ -222,6 +222,13 @@ footer {
   padding: 1rem 0;
   text-align: center;
   font-size: 5em;
+  color: #a992ba;
+}
+
+.open-source {
+  padding: 20px;
+  font-weight: 300;
+  text-align: center;
 }
 
 .callout-container {
