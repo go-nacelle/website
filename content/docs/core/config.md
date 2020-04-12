@@ -45,7 +45,17 @@ func (p *Process) Init(config nacelle.Config) error {
 }
 ```
 
-The `Load` method fails if a value from the source cannot be converted into the correct type, a value from the source cannot be decoded as JSON (if the target is a non-string type), or is required and not supplied. After each successful load of a configuration struct, the loaded configuration values will are logged. This, however, may be a concern for application secrets. In order to hide sensitive configuration values, add the `mask:"true"` struct tag to the field. This will omit that value from the log message. Additionally, configuration loader object can be initialized with a blacklist of values that should be masked (values printed as `*****` rather than their real value) instead of omitted. These values can be configured in the [bootstrapper](https://nacelle.dev/docs/core).
+The `Load` method fails if a value from the source cannot be converted into the correct type, a value from the source cannot be unmarshalled, or is required and not supplied. After each successful load of a configuration struct, the loaded configuration values will are logged. This, however, may be a concern for application secrets. In order to hide sensitive configuration values, add the `mask:"true"` struct tag to the field. This will omit that value from the log message. Additionally, configuration loader object can be initialized with a blacklist of values that should be masked (values printed as `*****` rather than their real value) instead of omitted. These values can be configured in the [bootstrapper](https://nacelle.dev/docs/core).
+
+#### JSON Unmarshalling
+
+The values that are loaded into non-string field of a configuration struct are interpreted as JSON. Supplying the environment `CASSANDRA_HOSTS='["host1", "host2", "host3"]'` to the configuration struct above will populate the `CassandraHosts` field with the values `host1`, `host2`, and `host3`. The defaults for such fields can also be supplied as a JSON-encoded string, but must be escaped to preserve the format of the struct tag.
+
+```go
+type Config struct {
+    CassandraHosts []string `env:"cassandra_hosts" default:"[\"host1\", \"host2\", \"host3\"]"`
+}
+```
 
 #### Conversion and Validation
 
@@ -97,7 +107,7 @@ A sourcer reads values from a particular source based on a configuration struct'
   <dd>An <a href="https://godoc.org/github.com/go-nacelle/config#NewEnvSourcer">environment sourcer</a> reads the <code>env</code> tag and looks up the corresponding value in the process's environment. An expected prefix may be supplied in order to namespace application configuration from the rest of the system. A sourcer instantiated with <code>NewEnvSourcer("APP")</code> will load the env tag <code>fetch_limit</code> from the environment variable <code>APP_FETCH_LIMIT</code> and falling back to the environment variable <code>FETCH_LIMIT</code>.</dd>
 
   <dt>Test Environment Sourcer</dt>
-  <dd>A <a href="https://godoc.org/github.com/go-nacelle/config#NewTestEnvSourcer">test environment sourcer</a> reads the <code>env</code> tag but looks up the corresponding value from a literal map. This sourcer is meant to be used in unit tests where the full construction of a nacelle [process](https://nacelle.dev/docs/core/process) is beneficial.</dd>
+  <dd>A <a href="https://godoc.org/github.com/go-nacelle/config#NewTestEnvSourcer">test environment sourcer</a> reads the <code>env</code> tag but looks up the corresponding value from a literal map. This sourcer can be used in unit tests where the full construction of a nacelle <a href="https://nacelle.dev/docs/core/process">process</a> is too burdensome.</dd>
 
   <dt>Flag Sourcer</dt>
   <dd>A <a href="https://godoc.org/github.com/go-nacelle/config#NewFlagSourcer">flag sourcer</a> reads the <code>flag</code> tag and looks up the corresponding value attached to the process's command line arguments.</dd>
