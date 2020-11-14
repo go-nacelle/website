@@ -5,6 +5,10 @@ executors:
     docker:
       - image: circleci/node:12.7.0-stretch
     working_directory: ~/website
+  go:
+    docker:
+      - image: circleci/golang:1.15
+    working_directory: ~/website
 
 jobs:
   build:
@@ -30,27 +34,16 @@ jobs:
             - bin
 
   deploy:
-    executor: node
+    executor: go
     steps:
       - attach_workspace:
           at: .
       - run:
-          name: Install s3cmd
-          command: |
-            sudo apt-get update
-            sudo apt-get install python-setuptools
-
-            git clone https://github.com/s3tools/s3cmd.git /tmp/s3cmd
-            cd /tmp/s3cmd/
-            sudo python setup.py install
-            cd -
-            sudo rm -rf /tmp/s3cmd
-      - run:
           name: Deploy
-          command: ./bin/deploy.sh
+          command: go run ./dev/deploy.go
       - run:
           name: Bust cache
-          command: ./bin/bust-cache.sh
+          command: go run ./dev/bust-cache.go
 
 workflows:
   version: 2
