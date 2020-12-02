@@ -21,3 +21,11 @@ s3cmd --config .s3cfg \
     --exclude '' \
     --include '.css' \
     s3://laniakea/nacelle/
+
+# Set proper content-types for js objects
+s3cmd --config .s3cfg \
+    --recursive modify \
+    --add-header='content-type':'text/javascript' \
+    --exclude '' \
+    --include '.js' \
+    s3://laniakea/nacelle/
