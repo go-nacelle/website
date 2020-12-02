@@ -20,3 +20,7 @@ disableKinds = ['taxonomy', 'taxonomyTerm', 'RSS']
   index_page = '/landing'
   resources_root = 'https://assets.nacelle.dev'
   categories = ['quickstart', 'core', 'frameworks', 'base processes', 'libraries']
+
+[outputs]
+  home = ["HTML", "JSON"]
+  page = ["HTML"]
