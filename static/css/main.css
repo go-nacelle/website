@@ -266,3 +266,10 @@ footer {
   text-align: center;
   padding-top: 50px;
 }
+
+/* Search Results
+ * --------------------------------------------*/
+
+.search-results {
+  margin-top: 20px;
+}
