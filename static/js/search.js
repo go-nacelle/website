@@ -3,51 +3,63 @@ function updateSearchInput() {
 }
 updateSearchInput();
 
-async function handleSearch() {
+function handleSearch() {
   const query = getQuery().trim().toLowerCase();
   if (query === "") {
-    $(".search-results").html("No search query supplied.");
-    return;
+    return showNoQuery();
   }
 
-  const pagesIndex = await (await fetch("/index.json")).json();
+  fetch("/index.json")
+    .then((response) => response.json())
+    .then((pagesIndex) => showResults(query, search(pagesIndex, query)))
+    .catch((err) => console.error(err));
+}
+handleSearch();
 
-  const searchIndex = lunr(function () {
+//
+// Helpers
+
+function getQuery() {
+  return new URLSearchParams(window.location.search).get("q") || "";
+}
+
+function search(pagesIndex, query) {
+  query = query
+    .split(" ")
+    .map((term) => `+${term.trim()}`)
+    .join(" ")
+    .substring(1);
+
+  return makeIndex(pagesIndex)
+    .search(query)
+    .map((hit) => pagesIndex.find((page) => page.href === hit.ref));
+}
+
+function makeIndex(pagesIndex) {
+  return lunr(function () {
     this.field("title");
     this.field("content");
     this.ref("href");
     pagesIndex.forEach((page) => this.add(page));
   });
+}
 
-  const results = searchIndex
-    .search(
-      query
-        .split(" ")
-        .map((term) => `+${term.trim()}`)
-        .join(" ")
-        .substring(1)
-    )
-    .map((hit) => pagesIndex.find((page) => page.href === hit.ref));
+function showNoQuery() {
+  $(".search-results").html("No search query supplied.");
+}
 
+function showResults(query, results) {
   if (results.length === 0) {
     $(".search-results").html(`No pages match '${query}'.`);
-    return;
+  } else {
+    const items = results.map(
+      (hit) => `
+        <li>
+          <a href='${hit.href}'>${hit.title}</a>
+        </li>
+      `
+    );
+
+    $(".search-results").html(`<ul>${items.join("")}</ul>`);
   }
-
-  $(".search-results ul").html(
-    results
-      .map(
-        (hit) => `
-          <li>
-            <a href='${hit.href}'>${hit.title}</a>
-          </li>
-        `
-      )
-      .join("")
-  );
-}
-handleSearch().catch((err) => console.error(err));
-
-function getQuery() {
-  return new URLSearchParams(window.location.search).get("q") || "";
 }
