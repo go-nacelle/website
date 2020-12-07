@@ -30,8 +30,8 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
+            - dev
             - public
-            - bin
 
   deploy:
     executor: go
@@ -47,7 +47,7 @@ jobs:
 
 workflows:
   version: 2
-  build_and_test:
+  build_and_deploy:
     jobs:
       - build
       - deploy:
