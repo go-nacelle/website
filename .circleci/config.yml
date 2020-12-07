@@ -40,8 +40,6 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run: pwd
-      - run: ls
       - run: go mod download
       - run:
           name: Deploy
