@@ -15,7 +15,6 @@ jobs:
     executor: node
     steps:
       - checkout
-      - run: go get
       - run: npm install
       - run:
           name: Download hugo
@@ -39,6 +38,7 @@ jobs:
     steps:
       - attach_workspace:
           at: .
+      - run: go get
       - run:
           name: Deploy
           command: go run ./cmd/deploy
