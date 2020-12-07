@@ -38,7 +38,7 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run: go get
+      - run: go mod download
       - run:
           name: Deploy
           command: go run ./cmd/deploy
