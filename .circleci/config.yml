@@ -32,7 +32,8 @@ jobs:
           paths:
             - cmd
             - public
-            - go.(mod|sum)
+            - go.mod
+            - go.sum
 
   deploy:
     executor: go
