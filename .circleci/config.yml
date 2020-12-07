@@ -30,8 +30,9 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - dev
+            - cmd
             - public
+            - go.(mod|sum)
 
   deploy:
     executor: go
