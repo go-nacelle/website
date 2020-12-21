@@ -138,39 +138,6 @@ footer {
   text-decoration: none;
 }
 
-@media screen and (max-width: 767px) {
-  .collapser:hover {
-    text-decoration: none;
-  }
-
-  .collapser:after {
-    content: "\f078";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 600;
-    font-size: .5rem;
-    padding-left: 5px;
-    vertical-align: middle;
-  }
-
-  .collapser.collapsed:after {
-    content: "\f054";
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .collapse:not(.show) {
-    display: block;
-    height: auto !important;
-    visibility: visible;
-  }
-
-  .collapsing {
-    position: relative;
-    height: unset !important;
-    overflow: hidden;
-  }
-}
-
 /* Doc Pages
  * --------------------------------------------*/
 
@@ -180,13 +147,6 @@ footer {
 
 .article-content {
   line-height: 1.6em;
-}
-
-.docmeta {
-  color: rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid #dee2e6;
-  margin-bottom: 1rem;
-  padding: 5px 0;
 }
 
 /* Landing Page
@@ -246,16 +206,6 @@ footer {
 .open-source {
   padding: 20px;
   font-weight: 300;
-  text-align: center;
-}
-
-.callout-container {
-  margin-top: 10px;
-  margin-bottom: -10px;
-}
-
-.callout {
-  width: 100%;
   text-align: center;
 }
 

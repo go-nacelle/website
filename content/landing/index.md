@@ -1,9 +1,5 @@
-+++
-title = "Landing"
-+++
+---
+title: "Nacelle"
+---
 
-{{< jumbotron >}}
-
-{{< features >}}
-
-{{< open-source >}}
+{{< partial "pages/landing" >}}

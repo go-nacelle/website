@@ -5,11 +5,37 @@
 
   <body>
     {{ if (eq .Type "docs") }}
-      {{ partial "docs-page.html" . }}
-    {{ else if (eq .Type "page") }}
-      {{ partial "landing.html" . }}
+      <div id="site-wrapper">
+        {{ partial "header.html" . }}
+      
+        <main role="main">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-3">
+                <div class="sidebar">
+                  {{ partial "sidebar.html" . }}
+                </div>
+              </div>
+      
+              <div class="col-12 col-md-9">
+                <article class="{{ .Type }}">
+                  <section class="article-content">
+                    {{ .Content }}
+                  </section>
+                </article>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
     {{ else }}
-      {{ partial "content-page.html" . }}
+      <div id="site-wrapper" class="{{ .Title | lower}}">
+        {{ partial "header.html" . }}
+      
+        <main role="main">
+          {{ .Content }}
+        </main>
+      </div>
     {{ end }}
 
     {{ partial "footer.html" . }}

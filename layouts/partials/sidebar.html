@@ -5,7 +5,23 @@
 
   <div id="sidebar">
     {{ range $category := .Site.Params.categories }}
-      {{ partial "category.html" (dict "root" $ "category" $category "permalink" $permalink) }}
+      {{ range $.Site.Pages }}
+        {{ if eq .Path (printf "docs/%s/_index.md" $category) }}
+          <span class="category {{ if eq $permalink (printf "%soverview/" .Permalink) }}current{{ end }}">
+            <a href="{{ .Permalink }}">{{ title $category }}</a>
+          </span>
+        {{ end }}
+      {{ end }}
+      
+      <div>
+        {{ range sort $.Site.Pages "Params.index" }}
+          {{ if eq .Params.category $category }}
+            <span class="docpage {{ if eq $permalink .Permalink }}current{{ end }}">
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </span>
+          {{ end }}
+        {{ end }}
+      </div>
     {{ end }}
   </div>
 </div>
