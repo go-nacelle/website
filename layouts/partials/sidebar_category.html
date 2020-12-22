@@ -1,0 +1,21 @@
+{{ range .root.Site.Pages }}
+  {{ if eq .Params.defines $.category }}
+    <li class="category{{ if eq $.permalink .Permalink }} current{{ end }}">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+
+      <ul>
+        {{ range sort $.root.Site.Pages "Params.index" }}
+          {{ if eq .Params.category $.category }}
+            {{ if (isset .Params "defines") }}
+                {{ partial "sidebar_category.html" (dict "root" $.root "permalink" $.permalink "category" .Params.defines) }}
+            {{ else }}
+              <li class="docpage{{ if eq $.permalink .Permalink }} current{{ end }}">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+              </li>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </ul>
+    </li>
+  {{ end }}
+{{ end }}

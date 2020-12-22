@@ -108,17 +108,9 @@ footer {
   margin-bottom: 25px;
 }
 
-.side-menu span {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.side-menu .category:not(:first-child) {
-  margin-top: 20px;
-}
-
-.side-menu div .docpage {
-  padding-left: 20px;
+.side-menu ul {
+  list-style-type: none;
+  padding-left: 1rem;
 }
 
 .side-menu .current::before {
@@ -130,11 +122,11 @@ footer {
   padding-right: 5px;
 }
 
-.side-menu .current a {
+.side-menu .current > a {
   color: #666;
 }
 
-.side-menu .current a:hover {
+.side-menu .current > a:hover {
   text-decoration: none;
 }
 
