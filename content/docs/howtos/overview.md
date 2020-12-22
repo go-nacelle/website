@@ -1,5 +1,9 @@
 ---
-title: "How-Tos"
+title: "How-to guides"
+defines: "howtos"
 ---
 
-How-tos index
+# "How-to" guides
+
+Here you'll find short answers to "How do I...?" types of questions. These how-to guides don't cover topics in depth - you'll find the material in the [Using Nacelle](../topics) and the 
+[reference](../ref) documentation. However, these guides will help you quickly accomplish common tasks.
