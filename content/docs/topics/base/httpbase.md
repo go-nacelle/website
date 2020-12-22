@@ -1,7 +1,7 @@
 ---
 title: "HTTP Base"
-category: "topics"
-index: 6
+category: "base"
+index: 1
 ---
 
 Abstract HTTP server process for nacelle.

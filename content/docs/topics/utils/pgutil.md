@@ -1,7 +1,7 @@
 ---
 title: "PG util"
-category: "topics"
-index: 10
+category: "utils"
+index: 1
 ---
 
 Postgres utilities for use with nacelle.

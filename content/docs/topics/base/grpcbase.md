@@ -1,7 +1,7 @@
 ---
 title: "gRPC Base"
-category: "topics"
-index: 7
+category: "base"
+index: 2
 ---
 
 Abstract gRPC server process for nacelle.

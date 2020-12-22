@@ -1,7 +1,7 @@
 ---
 title: "Lambda Base"
-category: "topics"
-index: 8
+category: "base"
+index: 3
 ---
 
 Abstract AWS Lambda server process for nacelle.

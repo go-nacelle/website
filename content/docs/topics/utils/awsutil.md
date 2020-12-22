@@ -1,7 +1,7 @@
 ---
 title: "AWS util"
-category: "topics"
-index: 11
+category: "utils"
+index: 2
 ---
 
 AWS service utilities for use with nacelle.

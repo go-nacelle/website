@@ -1,7 +1,7 @@
 ---
 title: "Worker Base"
-category: "topics"
-index: 9
+category: "base"
+index: 4
 ---
 
 Abstract worker process for nacelle.
