@@ -35,9 +35,9 @@ func mainErr() error {
 		allPaths[path] = struct{}{}
 	}
 
-	hasDeadLinks := false
+	ok := true
 	for _, path := range paths {
-		links, err := getLinks(path)
+		links, localLinks, err := getLinks(path)
 		if err != nil {
 			return err
 		}
@@ -51,17 +51,26 @@ func mainErr() error {
 
 		if len(deadLinks) > 0 {
 			fmt.Printf("%s contains dead links to:\n", path)
-
 			for _, link := range deadLinks {
 				fmt.Printf("\t- %s\n", link)
 			}
-
 			fmt.Printf("\n")
-			hasDeadLinks = true
+
+			ok = false
+		}
+
+		if len(localLinks) > 0 {
+			fmt.Printf("%s contains loocal links:\n", path)
+			for _, link := range localLinks {
+				fmt.Printf("\t- %s\n", link)
+			}
+			fmt.Printf("\n")
+
+			ok = false
 		}
 	}
 
-	if hasDeadLinks {
+	if !ok {
 		os.Exit(1)
 	}
 
@@ -82,25 +91,33 @@ func gatherPaths() (paths []string, _ error) {
 
 var hrefPattern = regexp.MustCompile(fmt.Sprintf(`href="([^"]+)"`))
 
-func getLinks(path string) ([]string, error) {
+func getLinks(path string) ([]string, []string, error) {
 	contents, err := ioutil.ReadFile(filepath.Join(publicDir, path))
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	var links []string
+	var localLinks []string
 	for _, m := range hrefPattern.FindAllSubmatch(contents, -1) {
 		url := string(m[1])
-		switch {
-		case strings.HasPrefix(url, baseURL):
+
+		// Absolute links
+		if strings.HasPrefix(url, baseURL) || strings.HasPrefix(url, "/") {
 			links = append(links, strings.TrimPrefix(url, baseURL))
-		case !strings.HasPrefix(url, "http"):
-			links = append(links, filepath.Join(path, url))
-		default:
+			continue
+		}
+
+		// Relative links (ignoring fragments and external links)
+		if !strings.HasPrefix(url, "#") && !strings.HasPrefix(url, "http") {
+			// Compute absolute path for validity check
+			links = append(links, filepath.Join(filepath.Dir(path), url))
+			// stash original path for error
+			localLinks = append(localLinks, url)
 		}
 	}
 
-	return links, nil
+	return links, localLinks, nil
 }
 
 // func invokeParallel(values []string, f func(arg string) error) error {
