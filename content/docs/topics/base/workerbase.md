@@ -8,13 +8,13 @@ Abstract worker process for nacelle.
 
 ---
 
-A **worker** is a process that periodically polls an external resource in order to discover or perform its main unit of work. A **base worker** is an abstract [process](https://nacelle.dev/docs/core/process) whose behavior can be be configured by implementing the `WorkerSpec` interface.
+A **worker** is a process that periodically polls an external resource in order to discover or perform its main unit of work. A **base worker** is an abstract [process](/docs/topics/process/process) whose behavior can be be configured by implementing the `WorkerSpec` interface.
 
 This library comes with an [example](https://github.com/go-nacelle/workerbase/tree/master/example) project. You can see an additional example of a worker process in the [example repository](https://github.com/go-nacelle/example), specifically the [worker spec](https://github.com/go-nacelle/example/blob/843979aaa86786784a1ca3646e8d0d1f69e29c65/cmd/worker/worker_spec.go#L15) definition.
 
 ### Process
 
-A worker process is created by supplying a specification, described [below](https://nacelle.dev/docs/base-processes/workerbase#worker-specification), that controls its behavior.
+A worker process is created by supplying a specification, described [below](#worker-specification), that controls its behavior.
 
 ```go
 worker := workerbase.NewWorker(NewWorkerSpec(), options...)

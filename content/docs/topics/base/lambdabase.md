@@ -8,13 +8,13 @@ Abstract AWS Lambda server process for nacelle.
 
 ---
 
-This library supplies an abstract AWS Lambda RPC server [process](https://nacelle.dev/docs/core/process) whose behavior can be be configured by implementing a `Handler` interface. This interface wraps the handler defined by [aws-lambda-go](https://github.com/aws/aws-lambda-go/blob/af0b813d5803d9754b920ed666b1cf8c16becfb3/lambda/handler.go#L14).
+This library supplies an abstract AWS Lambda RPC server [process](/docs/topics/process/process) whose behavior can be be configured by implementing a `Handler` interface. This interface wraps the handler defined by [aws-lambda-go](https://github.com/aws/aws-lambda-go/blob/af0b813d5803d9754b920ed666b1cf8c16becfb3/lambda/handler.go#L14).
 
 This library comes with an [example](https://github.com/go-nacelle/lambdabase/tree/master/example) project that logs values received from a Kinesis stream.
 
 ### Process
 
-A Lambda server process is created by supplying a handler, described [below](https://nacelle.dev/docs/base-processes/lambdabase#handler), that controls its behavior.
+A Lambda server process is created by supplying a handler, described [below](#handler), that controls its behavior.
 
 ```go
 server := lambdabase.NewServer(NewHandler(), options...)

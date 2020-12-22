@@ -8,7 +8,7 @@ index: 4
 
 ### Initializer Definition
 
-An **initializer** is a struct with an `Init` method that takes a [config](https://nacelle.dev/docs/core/config) object and may return an error value. Initializers should **not** perform long-running computation unless it is necessary for the startup of an application as they will block additional application startup. The following example creates a connection to a Postgres database and stores it in a service container for subsequent initializers and processes to use.
+An **initializer** is a struct with an `Init` method that takes a [config](/docs/topics/config) object and may return an error value. Initializers should **not** perform long-running computation unless it is necessary for the startup of an application as they will block additional application startup. The following example creates a connection to a Postgres database and stores it in a service container for subsequent initializers and processes to use.
 
 ```go
 import (

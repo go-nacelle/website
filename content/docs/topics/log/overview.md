@@ -37,5 +37,6 @@ requestLogger := logger.WithFields(nacelle.LogFields{
 requestLogger.Info("Accepted request from %s", remoteAddr)
 ```
 
-
-
+- [adapters](/docs/topics/log/adapters)
+- [caller_stack](/docs/topics/log/caller_stack)
+- [configuration](/docs/topics/log/configuration)

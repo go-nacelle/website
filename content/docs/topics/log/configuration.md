@@ -8,7 +8,7 @@ index: 1
 
 ### Configuration
 
-The following environment variables change the behavior of the loggers when using the nacelle [bootstrapper](https://nacelle.dev/docs/core).
+The following environment variables change the behavior of the loggers when using the nacelle [bootstrapper](/docs/topics/booting).
 
 | Environment Variable         | Default | Description |
 | ---------------------------- | ------- | ----------- |

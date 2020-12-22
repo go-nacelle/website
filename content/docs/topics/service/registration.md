@@ -21,4 +21,4 @@ func Init(services nacelle.ServiceContainer) error {
 }
 ```
 
-The [logger](https://nacelle.dev/docs/core/log) (under the name `logger`), the [health tracker](https://nacelle.dev/docs/core/process#tracking-process-health) (under the name `health`), and the service container itself (under the name `services`) are available in all applications using the nacelle [bootstrapper](https://nacelle.dev/docs/core).
+The [logger](/docs/topics/log) (under the name `logger`), the [health tracker](/docs/topics/process/health) (under the name `health`), and the service container itself (under the name `services`) are available in all applications using the nacelle [bootstrapper](/docs/topics/booting).

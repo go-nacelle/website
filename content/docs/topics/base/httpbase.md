@@ -8,13 +8,13 @@ Abstract HTTP server process for nacelle.
 
 ---
 
-This library supplies an abstract HTTP server [process](https://nacelle.dev/docs/core/process) whose behavior can be configured by implementing a `ServerInitializer` interface. For a more full-featured HTTP server framework built on nacelle, see [chevron](/docs/frameworks/chevron).
+This library supplies an abstract HTTP server [process](/docs/topics/process/process) whose behavior can be configured by implementing a `ServerInitializer` interface. For a more full-featured HTTP server framework built on nacelle, see [chevron](/docs/topics/frameworks/chevron).
 
 You can see an additional example of an HTTP process in the [example repository](https://github.com/go-nacelle/example), specifically the [server initializer](https://github.com/go-nacelle/example/blob/843979aaa86786784a1ca3646e8d0d1f69e29c65/cmd/http-api/server_initializer.go#L23).
 
 ### Process
 
-An HTTP process is created by supplying an initializer, described [below](https://nacelle.dev/docs/base-processes/httpbase#server-initializer), that controls its behavior.
+An HTTP process is created by supplying an initializer, described [below](#server-initializer), that controls its behavior.
 
 ```go
 server := httpbase.NewServer(NewServerInitializer(), options...)

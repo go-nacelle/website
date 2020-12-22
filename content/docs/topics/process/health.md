@@ -8,7 +8,7 @@ index: 5
 
 #### Tracking Process Health
 
-Processes can dynamically report their own health via a shared **health tracker** object available in the [service container](https://nacelle.dev/docs/core/service). The tracker maintains a list of *reasons* that an application is not fully healthy. When this list is empty, the application should be fully functional.
+Processes can dynamically report their own health via a shared **health tracker** object available in the [service container](/docs/topics/service). The tracker maintains a list of *reasons* that an application is not fully healthy. When this list is empty, the application should be fully functional.
 
 A process that does not interact with the health instance is assumed to be healthy when it is live. Usage of a global health instance should be used as follows.
 

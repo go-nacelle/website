@@ -8,13 +8,13 @@ Abstract gRPC server process for nacelle.
 
 ---
 
-This library supplies an abstract gRPC server [process](https://nacelle.dev/docs/core/process) whose behavior can be configured by implementing a `ServerInitializer` interface. For a more full-featured gRPC server framework built on nacelle, see [scarf](/docs/frameworks/scarf).
+This library supplies an abstract gRPC server [process](/docs/topics/process/process) whose behavior can be configured by implementing a `ServerInitializer` interface. For a more full-featured gRPC server framework built on nacelle, see [scarf](/docs/topics/frameworks/scarf).
 
 You can see an additional example of a gRPC process in the [example repository](https://github.com/go-nacelle/example), specifically the [server initializer](https://github.com/go-nacelle/example/blob/843979aaa86786784a1ca3646e8d0d1f69e29c65/cmd/grpc-api/server_initializer.go#L21).
 
 ### Process
 
-A gRPC process is created by supplying an initializer, described [below](https://nacelle.dev/docs/base-processes/grpcbase#server-initializer), that controls its behavior.
+A gRPC process is created by supplying an initializer, described [below](#server-initializer), that controls its behavior.
 
 ```go
 server := grpcbase.NewServer(NewServerInitializer(), options...)
