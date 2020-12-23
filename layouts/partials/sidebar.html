@@ -2,68 +2,62 @@
 
 <ul>
   {{ range $category := .Site.Params.categories }}
-    {{ partial "sidebar_category.html" (dict "pages" $.Site.Pages "permalink" $.Permalink "category" $category) }}
+    {{ partial "_sidebar_category" (dict "pages" $.Site.Pages "permalink" $.Permalink "category" $category) }}
   {{ end }}
 </ul>
 
-{{ define "partials/sidebar_category.html" }}
-  {{ range $.pages }}
-    {{ if eq .Params.defines $.category }}
-      <li class="{{ with partial "category_class.html" (dict "pages" $.pages "target" $.permalink "current" .Permalink "category" .Params.defines) }}
-        {{ . }}
-      {{ end }}">
-        <span>
-          {{ if eq $.permalink .Permalink }}
-            {{ .Title }}
-          {{ else }}
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
-          {{ end }}
-        </span>
+{{ define "partials/_sidebar_category" }}
+  {{ range where $.pages "Params.defines" $.category }}
+    <li class="{{ partial "_category_class" (dict "pages" $.pages "target" $.permalink "current" .Permalink "category" .Params.defines) }}">
+      {{ partial "_category_span" (dict "title" .Title "permalink" .Permalink "current" $.permalink ) }}
 
-        <ul>
-          {{ range sort $.pages "Params.index" }}
-            {{ if eq .Params.category $.category }}
-              {{ if (isset .Params "defines") }}
-                {{ partial "sidebar_category.html" (dict "pages" $.pages "permalink" $.permalink "category" .Params.defines) }}
-              {{ else }}
-                <li class="{{ with partial "category_class.html" (dict "pages" $.pages "target" $.permalink "current" .Permalink "category" .Params.defines) }}
-                  {{ . }}
-                {{ end }}">
-                  <span>
-                    {{ if eq $.permalink .Permalink }}
-                      {{ .Title }}
-                    {{ else }}
-                      <a href="{{ .Permalink }}">{{ .Title }}</a>
-                    {{ end }}
-                  </span>
-                </li>
-              {{ end }}
-            {{ end }}
+      <ul>
+        {{ range sort (where $.pages "Params.category" $.category) "Params.index" }}
+          {{ if isset .Params "defines" }}
+            {{ partial "_sidebar_category" (dict "pages" $.pages "permalink" $.permalink "category" .Params.defines) }}
+          {{ else }}
+            <li class="{{ partial "_category_class" (dict "pages" $.pages "target" $.permalink "current" .Permalink "category" .Params.defines) }}">
+              {{ partial "_category_span" (dict "title" .Title "permalink" .Permalink "current" $.permalink ) }}
+            </li>
           {{ end }}
-        </ul>
-      </li>
+        {{ end }}
+      </ul>
+    </li>
+  {{ end }}
+{{ end }}
+
+{{ define "partials/_category_class" }}
+  {{ with partialCached "_contains_category" . $.target $.current $.category }}
+    {{ if . }}
+      active
     {{ end }}
   {{ end }}
 {{ end }}
 
-{{ define "partials/category_class.html" }}
+{{ define "partials/_contains_category" }}
   {{ $class := "" }}
 
   {{ if eq $.target $.current }}
     {{ $class = "active" }}
-  {{ else }}
-    {{ if $.category }}
-      {{ range $.pages }}
-        {{ if eq .Params.category $.category }}
-            {{ with partial "category_class.html" (dict "pages" $.pages "target" $.target "current" .Permalink "category" .Params.defines) }}
-              {{ if . }}
-                {{ $class = . }}
-              {{ end }}
-            {{ end }}
+  {{ else if $.category }}
+    {{ range where $.pages "Params.category" $.category }}
+      {{ with partialCached "_contains_category" (dict "pages" $.pages "target" $.target "current" .Permalink "category" .Params.defines) $.target .Permalink .Params.defines }}
+        {{ if . }}
+          {{ $class = . }}
         {{ end }}
       {{ end }}
     {{ end }}
   {{ end }}
 
   {{ return $class }}
+{{ end }}
+
+{{ define "partials/_category_span" }}
+  <span>
+    {{ if eq $.current $.permalink }}
+      {{ $.title }}
+    {{ else }}
+      <a href="{{ $.permalink }}">{{ $.title }}</a>
+    {{ end }}
+  </span>
 {{ end }}

@@ -4,7 +4,7 @@
   {{ partial "head.html" . }}
 
   <body>
-    {{ partial "header.html" . }}
+    {{ partialCached "header.html" . }}
 
     <div class="site-wrapper">
       <div class="sidebar">
@@ -21,6 +21,6 @@
       </div>
     </div>
 
-    {{ partial "scripts.html" . }}
+    {{ partialCached "scripts.html" . }}
   </body>
 </html>
