@@ -2,4 +2,4 @@
 title: "Search results"
 ---
 
-{{< partial "pages/search-results" >}}
+{{< partial "search-results" >}}

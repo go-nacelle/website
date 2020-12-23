@@ -2,4 +2,4 @@
 title: "Nacelle"
 ---
 
-{{< partial "pages/landing" >}}
+{{< partial "landing" >}}

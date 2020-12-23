@@ -1,3 +1,69 @@
 <h4>Guides</h4>
 
-{{ partial "sidebar_categories.html" . }}
+<ul>
+  {{ range $category := .Site.Params.categories }}
+    {{ partial "sidebar_category.html" (dict "pages" $.Site.Pages "permalink" $.Permalink "category" $category) }}
+  {{ end }}
+</ul>
+
+{{ define "partials/sidebar_category.html" }}
+  {{ range $.pages }}
+    {{ if eq .Params.defines $.category }}
+      <li class="{{ with partial "category_class.html" (dict "pages" $.pages "target" $.permalink "current" .Permalink "category" .Params.defines) }}
+        {{ . }}
+      {{ end }}">
+        <span>
+          {{ if eq $.permalink .Permalink }}
+            {{ .Title }}
+          {{ else }}
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ end }}
+        </span>
+
+        <ul>
+          {{ range sort $.pages "Params.index" }}
+            {{ if eq .Params.category $.category }}
+              {{ if (isset .Params "defines") }}
+                {{ partial "sidebar_category.html" (dict "pages" $.pages "permalink" $.permalink "category" .Params.defines) }}
+              {{ else }}
+                <li class="{{ with partial "category_class.html" (dict "pages" $.pages "target" $.permalink "current" .Permalink "category" .Params.defines) }}
+                  {{ . }}
+                {{ end }}">
+                  <span>
+                    {{ if eq $.permalink .Permalink }}
+                      {{ .Title }}
+                    {{ else }}
+                      <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    {{ end }}
+                  </span>
+                </li>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </ul>
+      </li>
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ define "partials/category_class.html" }}
+  {{ $class := "" }}
+
+  {{ if eq $.target $.current }}
+    {{ $class = "active" }}
+  {{ else }}
+    {{ if $.category }}
+      {{ range $.pages }}
+        {{ if eq .Params.category $.category }}
+            {{ with partial "category_class.html" (dict "pages" $.pages "target" $.target "current" .Permalink "category" .Params.defines) }}
+              {{ if . }}
+                {{ $class = . }}
+              {{ end }}
+            {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ return $class }}
+{{ end }}
