@@ -1,6 +1,7 @@
 ---
 title: "Using Nacelle"
 defines: "topics"
+category: docs
 ---
 
 # Using Nacelle

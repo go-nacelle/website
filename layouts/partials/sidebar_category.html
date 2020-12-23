@@ -1,13 +1,13 @@
-{{ range .root.Site.Pages }}
+{{ range $.pages }}
   {{ if eq .Params.defines $.category }}
     <li class="category{{ if eq $.permalink .Permalink }} current{{ end }}">
       <a href="{{ .Permalink }}">{{ .Title }}</a>
 
       <ul>
-        {{ range sort $.root.Site.Pages "Params.index" }}
+        {{ range sort $.pages "Params.index" }}
           {{ if eq .Params.category $.category }}
             {{ if (isset .Params "defines") }}
-                {{ partial "sidebar_category.html" (dict "root" $.root "permalink" $.permalink "category" .Params.defines) }}
+                {{ partial "sidebar_category.html" (dict "pages" $.pages "permalink" $.permalink "category" .Params.defines) }}
             {{ else }}
               <li class="docpage{{ if eq $.permalink .Permalink }} current{{ end }}">
                 <a href="{{ .Permalink }}">{{ .Title }}</a>

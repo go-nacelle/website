@@ -1,148 +1,110 @@
-/* Bootstrap Overrides
- * --------------------------------------------*/
-
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: 'Open Sans','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.4;
+body {
+  padding-top: 70px;
 }
 
-pre {
-  border: 0;
-  background-color: #1e1e1e;
+.site-wrapper {
+  position: relative;
 }
 
-dd + dt {
-  margin-top: 10px;
+.header {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+  background: #fff;
 }
 
-dd {
-  margin-left: 40px;
-  padding-right: 40px;
+.branding {
+  min-height: 70px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-table {
-  margin-bottom: 1rem;
-  width: 100%;
+.search-wrapper {
+  flex: 50%;
+  padding-top: 1rem !important;
 }
 
-table th {
-  border-top: 1px solid #dee2e6;
-  border-bottom: 2px solid #dee2e6;
+.logo {
+  flex: 50%;
 }
 
-table th,
-table td {
-  padding: .75rem;
-}
-
-table tbody tr:nth-of-type(2n+1) {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.highlight table tbody tr {
-  background-color: inherit;
-}
-
-/* Stick Footer
- * --------------------------------------------*/
-
-#site-wrapper {
-  min-height: 100%;
-  margin-bottom: -100px;
-  padding-bottom: 20px;
-}
-
-#site-wrapper:after {
-  content: "";
-  display: block;
-}
-
-footer, #site-wrapper:after {
-  height: 100px;
-}
-
-footer {
-  text-align: center;
-  background-color: #92b5ba;
-  font-weight: 300;
-  font-size: 14px;
-  color: #ffffff;
-  padding-top: 20px;
-}
-
-@media screen and (max-width: 767px) {
-  footer {
-    padding-top: 10px;
-  }
-}
-
-/* Navbar
- * --------------------------------------------*/
-
-.navbar {
-  border-bottom: 0px;
-  background-color: #92b5ba;
-  background-image: url("/images/banner.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.navbar-inverse .navbar-brand,
-.navbar-inverse .navbar-nav > a {
-  color: #fff;
-}
-
-.navbar-brand {
-  font-family: Lato, sans-serif;
-  font-weight: 400;
-}
-
-/* Side Menu
- * --------------------------------------------*/
-
-.side-menu h4 {
-  margin-bottom: 25px;
-}
-
-.side-menu ul {
-  list-style-type: none;
+.logo .navbar-brand {
+  padding-top: 0;
   padding-left: 1rem;
 }
 
-.side-menu .current::before {
-  content: "\f054";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 600;
-  font-size: .75rem;
-  margin-left: -5px;
-  padding-right: 5px;
+.logo .icon {
+  width: 64px;
+  height: 64px;
 }
 
-.side-menu .current > a {
-  color: #666;
+.logo .text {
+  color: #252930;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-weight: 300;
 }
 
-.side-menu .current > a:hover {
-  text-decoration: none;
+.sidebar {
+  width: 300px;
+  position: fixed;
+  z-index: 10;
+  top: 70px;
+  height: calc(100% - 70px);
+  background: #fff;
+  overflow-y: auto;
+  scrollbar-color: rgba(0, 0, 0, 0.2) #f5f5f5;
+  scrollbar-width: thin;
+  transition: transform 0.35s ease-in-out;
+  box-shadow: 1px 0 5px 0 rgba(0, 0, 0, 0.1);
 }
 
-/* Doc Pages
- * --------------------------------------------*/
-
-.sidebar, .article-content {
-  padding-top: 20px;
+.nav {
+  overflow-y: auto;
+  padding: 1rem;
 }
 
-.article-content {
-  line-height: 1.6em;
+.content {
+  margin-left: 300px;
 }
 
-/* Landing Page
- * --------------------------------------------*/
+@media (max-width: 768px) {
+  body {
+    padding-top: 124px;
+  }
+
+  .branding {
+    min-height: 124px;
+  }
+
+  .logo {
+    flex: 100%;
+    text-align: center;
+  }
+
+  .logo .text {
+    display: none;
+  }
+
+  .search-wrapper {
+    flex: 100%;
+    margin: 0;
+    padding: 0.5rem !important;
+  }
+
+  #search {
+    width: 100%;
+    margin-left: 0.5rem !important;
+  }
+
+  .sidebar {
+    transform: translateX(-300px);
+  }
+
+  .content {
+    margin-left: 0;
+  }
+}
+
+/* --------------------------------------------*/
 
 .landing .navbar {
   background-image: none;
@@ -199,19 +161,4 @@ footer {
   padding: 20px;
   font-weight: 300;
   text-align: center;
-}
-
-/* Not Found
- * --------------------------------------------*/
-
-.notfound {
-  text-align: center;
-  padding-top: 50px;
-}
-
-/* Search Results
- * --------------------------------------------*/
-
-.search-results {
-  margin-top: 20px;
 }

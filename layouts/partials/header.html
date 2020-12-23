@@ -1,17 +1,16 @@
-<div class="navbar-jumbotron">
-  <nav class="navbar navbar-expand navbar-inverse sticky-top" role="navigation">
-    <div class="container">
-      <a class="navbar-brand" href="/">Nacelle</a>
-
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="/docs">Docs</a>
-        <a class="nav-item nav-link" href="https://github.com/go-nacelle/example">Example</a>
-        <a class="nav-item nav-link" href="https://github.com/go-nacelle"><i class="fab fa-github"></i></a>
-
-        <form method="GET" action="/search" class="form-inline my-2 ml-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" id="search" name="q" placeholder="Search">
-        </form>
-      </div>
+<header class="header fixed-top">
+  <div class="branding flex-container">
+    <div class="logo">
+      <a class="navbar-brand" href="/">
+        <img class="icon" src="/images/nacelle.png" alt="logo" /> 
+        <span class="text ml-2">Nacelle</span>
+      </a>
     </div>
-  </nav>
-</div>
+
+    <div class="search-wrapper pt-3">
+      <form method="GET" action="/search" class="form-inline">
+        <input class="form-control ml-auto mr-2" type="search" id="search" name="q" placeholder="Search">
+      </form>
+    </div>
+  </div>
+</header>

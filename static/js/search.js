@@ -45,12 +45,12 @@ function makeIndex(pagesIndex) {
 }
 
 function showNoQuery() {
-  $(".search-results").html("No search query supplied.");
+  $("#search-results").html("No search query supplied.");
 }
 
 function showResults(query, results) {
   if (results.length === 0) {
-    $(".search-results").html(`No pages match '${query}'.`);
+    $("#search-results").html(`No pages match '${query}'.`);
   } else {
     const items = results.map(
       (hit) => `
@@ -60,6 +60,6 @@ function showResults(query, results) {
       `
     );
 
-    $(".search-results").html(`<ul>${items.join("")}</ul>`);
+    $("#search-results").html(`<ul>${items.join("")}</ul>`);
   }
 }

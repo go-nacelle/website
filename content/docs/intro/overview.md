@@ -1,6 +1,7 @@
 ---
 title: "Getting started"
 defines: "intro"
+category: docs
 ---
 
 # Getting started

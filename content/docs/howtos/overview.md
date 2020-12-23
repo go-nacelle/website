@@ -1,6 +1,7 @@
 ---
 title: "How-to guides"
 defines: "howtos"
+category: docs
 ---
 
 # "How-to" guides
