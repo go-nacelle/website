@@ -1,3 +1,23 @@
+function setupFocusHandler() {
+  $(document).keydown(function(ev) {
+    if (ev.keyCode === 191 && !$("#search").is(":focus")) {
+      $("#search").val('').focus();
+      return false;
+    }
+  });
+}
+setupFocusHandler();
+
+function setupFocusedHandler() {
+  $("#search").focus(function() {
+    $('.search-wrapper kbd').hide();
+  });
+  $("#search").blur(function() {
+    $('.search-wrapper kbd').show();
+  })
+}
+setupFocusedHandler();
+
 function updateSearchInput() {
   $("#search").val(getQuery());
 }
