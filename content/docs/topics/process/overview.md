@@ -15,12 +15,12 @@ Nacelle applications can be coarsely decomposed into several behavioral categori
 
 <dl>
   <dt>Process</dt>
-  <dd>A <a href="https://godoc.org/github.com/go-nacelle/process#Process">process</a> is a long-running component of an application such as a server or an event processor. Processes will usually run for the life of the application (e.g. until a shutdown signal is received or an error occurs). There is a special class of processes that are allowed to exit once running, but these are the exception.</dd>
+  <dd>A <a href="https://pkg.go.dev/github.com/go-nacelle/process#Process">process</a> is a long-running component of an application such as a server or an event processor. Processes will usually run for the life of the application (e.g. until a shutdown signal is received or an error occurs). There is a special class of processes that are allowed to exit once running, but these are the exception.</dd>
 </dl>
 
 <dl>
   <dt>Initializer</dt>
-  <dd>An <a href="https://godoc.org/github.com/go-nacelle/process#Initializer">initializer</a> is a component that is invoked once on application startup. An initializer usually instantiates a service or set up shared state required by other parts of the application</dd>
+  <dd>An <a href="https://pkg.go.dev/github.com/go-nacelle/process#Initializer">initializer</a> is a component that is invoked once on application startup. An initializer usually instantiates a service or set up shared state required by other parts of the application</dd>
 </dl>
 
 <dl>

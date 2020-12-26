@@ -50,22 +50,22 @@ The following options can be set on a process during registration.
 
 <dl>
     <dt>WithPriority</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/process#WithPriority">WithPriority</a> sets the priority group the process belongs to. Processes of the same - priority are initialized and started in parallel.</dd>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/process#WithPriority">WithPriority</a> sets the priority group the process belongs to. Processes of the same - priority are initialized and started in parallel.</dd>
 
   <dt>WithProcessInitTimeout</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/process#WithProcessInitTimeout">WithProcessInitTimeout</a> sets the maximum time that the process can spend in its Init method.</dd>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/process#WithProcessInitTimeout">WithProcessInitTimeout</a> sets the maximum time that the process can spend in its Init method.</dd>
 
   <dt>WithProcessName</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/process#WithProcessName">WithProcessName</a> sets the name of the process in log messages.</dd>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/process#WithProcessName">WithProcessName</a> sets the name of the process in log messages.</dd>
 
   <dt>WithProcessShutdownTimeout</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/process#WithProcessShutdownTimeout">WithProcessShutdownTimeout</a> sets the maximum time that the process can spend waiting for its Start method to unblock after its Stop method is called.</dd>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/process#WithProcessShutdownTimeout">WithProcessShutdownTimeout</a> sets the maximum time that the process can spend waiting for its Start method to unblock after its Stop method is called.</dd>
 
   <dt>WithProcessStartTimeout</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/process#WithProcessStartTimeout">WithProcessStartTimeout</a> sets the maximum time that the process can spend <strong>unhealthy</strong> after its Start method is called. See <a href="#health">health</a> below.</dd>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/process#WithProcessStartTimeout">WithProcessStartTimeout</a> sets the maximum time that the process can spend <strong>unhealthy</strong> after its Start method is called. See <a href="#health">health</a> below.</dd>
 
   <dt>WithSilentExit</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/process#WithSilentExit">WithSilentExit</a> sets a flag that allows a nil error value to be returned without signaling an application shutdown. This can be useful for things like leader election on startup which should not stop hot standby processes from taking client requests.</dd>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/process#WithSilentExit">WithSilentExit</a> sets a flag that allows a nil error value to be returned without signaling an application shutdown. This can be useful for things like leader election on startup which should not stop hot standby processes from taking client requests.</dd>
 </dl>
 
 #### Initializer Registration Options
@@ -74,11 +74,11 @@ The following options can be set on an initializer during registration.
 
 <dl>
   <dt>WithFinalizerTimeout</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/process#WithFinalizerTimeout">WithFinalizerTimeout</a> sets the maximum time that the initializer can spend on finalization. As the application is already shutting down, this will simply log and error and unblock the finalizer.</dd>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/process#WithFinalizerTimeout">WithFinalizerTimeout</a> sets the maximum time that the initializer can spend on finalization. As the application is already shutting down, this will simply log and error and unblock the finalizer.</dd>
 
   <dt>WithInitializerName</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/process#WithInitializerName">WithInitializerName</a> sets the name of the initializer in log messages.</dd>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/process#WithInitializerName">WithInitializerName</a> sets the name of the initializer in log messages.</dd>
 
   <dt>WithInitializerTimeout</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/process#WithInitializerTimeout">WithInitializerTimeout</a> sets the maximum time that the initializer can spend in its Init method. An error will be returned if this time is exceeded.</dd>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/process#WithInitializerTimeout">WithInitializerTimeout</a> sets the maximum time that the initializer can spend in its Init method. An error will be returned if this time is exceeded.</dd>
 </dl>

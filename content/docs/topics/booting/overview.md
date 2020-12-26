@@ -9,7 +9,7 @@ index: 1
 
 # github.com/go-nacelle/nacelle
 
-This package provides a common [bootstrapper](https://godoc.org/github.com/go-nacelle/nacelle#Bootstrapper) object that initializes and supervises the core framework behaviors.
+This package provides a common [bootstrapper](https://pkg.go.dev/github.com/go-nacelle/nacelle#Bootstrapper) object that initializes and supervises the core framework behaviors.
 
 ---
 
@@ -31,30 +31,30 @@ The following options can be supplied to the bootstrapper to tune its behavior.
 
 <dl>
   <dt>WithConfigSourcer</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/nacelle#WithConfigSourcer">WithConfigSourcer</a> changes the default source for configuration variables. The default sourcer is the application environment using the name given to the bootstrapper as a prefix.</dd>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/nacelle#WithConfigSourcer">WithConfigSourcer</a> changes the default source for configuration variables. The default sourcer is the application environment using the name given to the bootstrapper as a prefix.</dd>
 
   <dt>WithConfigMaskedKeys</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/nacelle#WithConfigMaskedKeys">WithConfigMaskedKeys</a> sets the keys to mask from log messages when loading configuration data. This is used to hide sensitive configuration values.</dd>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/nacelle#WithConfigMaskedKeys">WithConfigMaskedKeys</a> sets the keys to mask from log messages when loading configuration data. This is used to hide sensitive configuration values.</dd>
 
   <dt>WithLoggingInitFunc</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/nacelle#WithLoggingInitFunc">WithLoggingInitFunc</a> sets the factory used to create the base logger. This can be set to supply a different log backend.</dd>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/nacelle#WithLoggingInitFunc">WithLoggingInitFunc</a> sets the factory used to create the base logger. This can be set to supply a different log backend.</dd>
 
   <dt>WithLoggingFields</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/nacelle#WithLoggingFields">WithLoggingFields</a> adds additional fields to every log message. This can be useful to present build information (time, hash, branch), process name, or operating environment.</dd>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/nacelle#WithLoggingFields">WithLoggingFields</a> adds additional fields to every log message. This can be useful to present build information (time, hash, branch), process name, or operating environment.</dd>
 
   <dt>WithRunnerOptions</dt>
   <dd>
-    <a href="https://godoc.org/github.com/go-nacelle/nacelle#WithRunnerOptions">WithRunnerOptions</a> accepts additional options specific to the process runner. The following options can be supplied to tune its behavior.
+    <a href="https://pkg.go.dev/github.com/go-nacelle/nacelle#WithRunnerOptions">WithRunnerOptions</a> accepts additional options specific to the process runner. The following options can be supplied to tune its behavior.
     <!---->
     <dl>
       <dt>WithHealthCheckInterval</dt>
-      <dd><a href="https://godoc.org/github.com/go-nacelle/process#WithHealthCheckInterval">WithHealthCheckInterval</a> sets the frequency between checks of process health during startup.</dd>
+      <dd><a href="https://pkg.go.dev/github.com/go-nacelle/process#WithHealthCheckInterval">WithHealthCheckInterval</a> sets the frequency between checks of process health during startup.</dd>
       <!---->
       <dt>WithShutdownTimeout</dt>
-      <dd><a href="https://godoc.org/github.com/go-nacelle/process#WithShutdownTimeout">WithShutdownTimeout</a> sets the maximum time that the application can spend shutting down.</dd>
+      <dd><a href="https://pkg.go.dev/github.com/go-nacelle/process#WithShutdownTimeout">WithShutdownTimeout</a> sets the maximum time that the application can spend shutting down.</dd>
       <!---->
       <dt>WithStartTimeout</dt>
-      <dd><a href="https://godoc.org/github.com/go-nacelle/process#WithStartTimeout">WithStartTimeout</a> sets the maximum time that the application can spend in startup.</dd>
+      <dd><a href="https://pkg.go.dev/github.com/go-nacelle/process#WithStartTimeout">WithStartTimeout</a> sets the maximum time that the application can spend in startup.</dd>
     </dl>
   </dd>
 </dl>

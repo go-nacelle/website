@@ -63,7 +63,7 @@ The following options can be supplied to the server constructor to tune its beha
 
 <dl>
   <dt>WithTagModifiers</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/httpbase#WithTagModifiers">WithTagModifiers</a> registers the tag modifiers to be used when loading process configuration (see <a href="https://godoc.org/github.com/go-nacelle/httpbase#Configuration">below</a>). This can be used to change default hosts and ports, or prefix all target environment variables in the case where more than one HTTP server is registered per application (e.g. health server and application server, data plane and control plane server).</dt>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/httpbase#WithTagModifiers">WithTagModifiers</a> registers the tag modifiers to be used when loading process configuration (see <a href="https://pkg.go.dev/github.com/go-nacelle/httpbase#Configuration">below</a>). This can be used to change default hosts and ports, or prefix all target environment variables in the case where more than one HTTP server is registered per application (e.g. health server and application server, data plane and control plane server).</dt>
 </dd>
 
 ### Configuration

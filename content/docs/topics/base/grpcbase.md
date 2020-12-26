@@ -22,7 +22,7 @@ server := grpcbase.NewServer(NewServerInitializer(), options...)
 
 ### Server Initializer
 
-A server initializer is a struct with an `Init` method that takes a config object and an [grpc.Server](https://godoc.org/google.golang.org/grpc#Server) as parameters.  This method may return an error value, which signals a fatal error to the process that runs it. This method provides an extension point to register services to the server instance before the process accepts connections.
+A server initializer is a struct with an `Init` method that takes a config object and an [grpc.Server](https://pkg.go.dev/google.golang.org/grpc#Server) as parameters.  This method may return an error value, which signals a fatal error to the process that runs it. This method provides an extension point to register services to the server instance before the process accepts connections.
 
 The following example registers a gRPC service to the server that will atomically increment a request counter and return it in a payload defined in the `proto` package that also contains the service definition.
 
@@ -61,10 +61,10 @@ The following options can be supplied to the server constructor to tune its beha
 
 <dl>
   <dt>WithTagModifiers</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/grpcbase#WithTagModifiers">WithTagModifiers</a> registers the tag modifiers to be used when loading process configuration (see <a href="https://godoc.org/github.com/go-nacelle/grpcbase#Configuration">below</a>). This can be used to change default hosts and ports, or prefix all target environment variables in the case where more than one gRPC server is registered per application (e.g. health server and application server, data plane and control plane server).</dd>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/grpcbase#WithTagModifiers">WithTagModifiers</a> registers the tag modifiers to be used when loading process configuration (see <a href="https://pkg.go.dev/github.com/go-nacelle/grpcbase#Configuration">below</a>). This can be used to change default hosts and ports, or prefix all target environment variables in the case where more than one gRPC server is registered per application (e.g. health server and application server, data plane and control plane server).</dd>
 
   <dt>WithServerOptions</dt>
-  <dd><a href="https://godoc.org/github.com/go-nacelle/grpcbase#WithServerOptions">WithServerOptions</a> registers options to be supplied directly to the gRPC server constructor.</dd>
+  <dd><a href="https://pkg.go.dev/github.com/go-nacelle/grpcbase#WithServerOptions">WithServerOptions</a> registers options to be supplied directly to the gRPC server constructor.</dd>
 </dl>
 
 ### Configuration
