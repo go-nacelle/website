@@ -93,9 +93,10 @@ body {
 
 .sidebar .chevron {
   color: #6c757d;
+  font-size: .75rem;
 }
 
-.sidebar            .chevron:after {
+.sidebar .chevron:after {
   content: "\f077";
 }
 
