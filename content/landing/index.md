@@ -1,5 +1,0 @@
----
-title: "Nacelle"
----
-
-{{< partial "landing" >}}
