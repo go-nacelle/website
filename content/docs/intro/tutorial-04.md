@@ -1,5 +1,6 @@
 ---
 title: "Writing your first Nacelle app, part 4"
+sidebarTitle: "Tutorial (part 4)"
 category: "intro"
 index: 6
 ---

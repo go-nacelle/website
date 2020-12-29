@@ -11,7 +11,7 @@
     {{ $active := (partial "_contains_category_cached" (dict "pages" $.pages "target" $.permalink "current" .Permalink "category" .Params.defines)) }}
 
     <li class="{{ if $active }}active{{ end }}">
-      {{ partial "_category_span" (dict "title" .Title "permalink" .Permalink "current" $.permalink ) }}
+      {{ partial "_category_span" (dict "title" .Title "sidebarTitle" .Params.SidebarTitle "permalink" .Permalink "current" $.permalink ) }}
 
       {{ if (and (isset .Params "defines") (gt (len (where $.pages "Params.category" $.category)) 0)) }}
         <a data-toggle="collapse" href="#ul-{{ .Params.defines }}" aria-expanded="{{ $active }}" class="{{ if (not $active) }}collapsed{{ end }}">
@@ -26,7 +26,7 @@
               {{ $active := (partial "_contains_category_cached" (dict "pages" $.pages "target" $.permalink "current" .Permalink "category" .Params.defines)) }}
 
               <li class="{{ if $active }}active{{ end }}">
-                {{ partial "_category_span" (dict "title" .Title "permalink" .Permalink "current" $.permalink ) }}
+                {{ partial "_category_span" (dict "title" .Title "sidebarTitle" .Params.SidebarTitle "permalink" .Permalink "current" $.permalink ) }}
               </li>
             {{ end }}
           {{ end }}
@@ -61,9 +61,13 @@
 {{ define "partials/_category_span" }}
   <span>
     {{ if eq $.current $.permalink }}
-      {{ $.title }}
+      {{ partial "_category_title" . }}
     {{ else }}
-      <a href="{{ $.permalink }}">{{ $.title }}</a>
+      <a href="{{ $.permalink }}">{{ partial "_category_title" . }}</a>
     {{ end }}
   </span>
+{{ end }}
+
+{{ define "partials/_category_title" }}
+  {{ if $.sidebarTitle }}{{ $.sidebarTitle }}{{ else }}{{ $.title }}{{ end }}
 {{ end }}
