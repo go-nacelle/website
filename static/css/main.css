@@ -83,16 +83,25 @@ body {
   list-style-type: none;
 }
 
-.sidebar ul { padding-left: 0; }
-.sidebar ul ul { padding-left: 1rem; }
-.sidebar ul ul ul { padding-left: 2rem; }
-.sidebar ul ul ul ul { padding-left: 3rem; }
-.sidebar ul ul ul ul ul { background-color: red; }
-.sidebar ul li.active > span { font-weight: 600; }
+.sidebar ul {
+  padding-left: 1rem;
+}
 
-.sidebar .chevron { color: black; }
-.sidebar .chevron:after { content: "\f078"; }
-.sidebar .collapsed .chevron:after { content: "\f054"; }
+.sidebar ul li.active > span {
+  font-weight: 600;
+}
+
+.sidebar .chevron {
+  color: #6c757d;
+}
+
+.sidebar            .chevron:after {
+  content: "\f077";
+}
+
+.sidebar .collapsed .chevron:after {
+  content: "\f078";
+}
 
 .nav {
   overflow-y: auto;
