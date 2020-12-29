@@ -35,14 +35,23 @@ body {
 .search-icon-hamburger {
   position: absolute;
   width: auto;
-  top: 23px;
+  top: 22px;
   color: grey;
   margin-top: 0;
 }
 
-.search-icon-left { left: 25px; }
-.search-icon-right { right: 15px; }
-.search-icon-hamburger { left: -25px; }
+.search-icon-left {
+  left: 25px;
+}
+
+.search-icon-right {
+  right: 15px;
+}
+
+.search-icon-hamburger {
+  left: -25px;
+  cursor: pointer;
+}
 
 .logo {
   flex: 50%;
@@ -56,13 +65,16 @@ body {
 .logo .icon {
   width: 64px;
   height: 64px;
+  margin-top: -1rem;
 }
 
 .logo .text {
   color: #252930;
   font-size: 1.2rem;
+  line-height: 1.2rem;
   font-weight: bold;
   font-weight: 300;
+  display: inline-block;
 }
 
 .sidebar {
@@ -122,6 +134,14 @@ body {
   .search-icon-hamburger {
     display: none; 
   }
+
+  .search-wrapper {
+    padding-right: 1rem;
+  }
+
+  .search-icon-right {
+    right: 32px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -158,7 +178,7 @@ body {
   .search-icon-left,
   .search-icon-right,
   .search-icon-hamburger {
-    top: 16px;
+    top: 14px;
   }
 
   .sidebar {
