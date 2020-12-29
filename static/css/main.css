@@ -86,14 +86,20 @@ body {
 .sidebar ul ul ul { padding-left: 2rem; }
 .sidebar ul ul ul ul { padding-left: 3rem; }
 .sidebar ul ul ul ul ul { background-color: red; }
+.sidebar ul li.active > span { font-weight: 600; }
 
-.sidebar ul .active > span {
-  font-weight: 600;
-}
+.sidebar .chevron { color: black; }
+.sidebar .chevron:after { content: "\f078"; }
+.sidebar .collapsed .chevron:after { content: "\f054"; }
 
 .nav {
   overflow-y: auto;
   padding: 1rem;
+}
+
+.navbar {
+  flex-direction: column;
+  align-items: unset;
 }
 
 .content {
@@ -206,8 +212,8 @@ body {
 /* --------------------------------------------*/
 
 /* clears the 'X' from Internet Explorer */
-input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }
-input[type=search]::-ms-reveal {  display: none; width : 0; height: 0; }
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
 
 /* clears the 'X' from Chrome */
 input[type="search"]::-webkit-search-decoration,
