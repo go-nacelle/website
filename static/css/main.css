@@ -1,31 +1,279 @@
+:root {
+  /* TODO - rename, document vars */
+  --brand-green: #92b5ba;
+  --brand-purple: #a992ba;
+  --dark: #212529;
+  --muted: #6c757d;
+  --shadow-color: rgba(0, 0, 0, 0.35);
+
+  --logo-size: 4rem;
+  --header-height-sm: calc(var(--logo-size) + 0.375rem);
+  --header-height-lg: 128px; /* TODO - derive */
+
+  --sidebar-width: 300px;
+  --font-weight-regular: 300;
+  --font-weight-bold: 600;
+  --line-height-regular: 1.7;
+}
+
+/* Global */
+
 body {
-  padding-top: 70px;
-  font-weight: 300;
-  line-height: 1.7;
+  line-height: var(--line-height-regular);
+  font-weight: var(--font-weight-regular);
+
+  /* Push content out from under the header */
+  padding-top: var(--header-height-sm);
 }
 
-@media (max-width: 767px) {
-  body {
-    padding-top: 8rem;
-  }
-}
-
-/* clears the 'X' from Internet Explorer */
-input[type="search"]::-ms-clear {
+/* Remove input clear icon from inputs (Chrome) */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
   display: none;
-  width: 0;
-  height: 0;
 }
+
+/* Remove input clear icon from inputs (IE, Edge) */
+input[type="search"]::-ms-clear,
 input[type="search"]::-ms-reveal {
   display: none;
   width: 0;
   height: 0;
 }
 
-/* clears the 'X' from Chrome */
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
+kbd {
+  color: #3c4257;
+  background: #f7fafc;
+  border-radius: 0.25rem;
+  border: 1px solid #e3e8ee;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  flex-flow: wrap;
+  background: #fff;
+  box-shadow: 0 0 .25rem 0 var(--shadow-color);
+  min-height: var(--header-height-sm);
+}
+
+.brand {
+  /* Occupy left half of header */
+  flex: 50%;
+  display: flex;
+}
+.brand a:hover {
+  text-decoration: none;
+}
+.brand img {
+  width: var(--logo-size);
+  height: var(--logo-size);
+}
+.brand .text h1 {
+  color: var(--dark);
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  font-weight: var(--font-weight-regular);
+}
+
+.search-wrapper {
+  /* Occupy right half of header */
+  flex: 50%;
+}
+
+#search {
+  width: 100%;
+  /* Ensure text does not overlap search icon */
+  padding-left: 2.25rem;
+}
+
+.search-icon-left,
+.search-icon-right,
+.search-icon-hamburger {
+  position: absolute;
+  top: 1.33rem;
+  color: var(--muted);
+}
+.search-icon-left {
+  left: 1.25rem;
+}
+.search-icon-right {
+  right: 1.5rem;
+}
+.search-icon-hamburger {
+  left: -1.25rem;
   display: none;
+  cursor: pointer;
+}
+
+/* Sidebar */
+
+.sidebar {
+  background: #fff;
+  width: var(--sidebar-width);
+  
+  /* Have sidebar float attached to left window border and header element */
+  position: fixed;
+  top: var(--header-height-sm);
+  height: calc(100% - var(--header-height-sm));
+  
+  /* Slide sidebar in and out of frame by adjusting element coordinates */
+  transition: transform 0.35s ease-in-out;
+  box-shadow: 0 0 0.25rem 0 var(--shadow-color);
+
+  /* Enable scroll bar */
+  overflow-y: auto;
+
+  /* Style scroll bar */
+  scrollbar-color: rgba(0, 0, 0, 0.2) #f5f5f5;
+  scrollbar-width: thin;
+}
+.sidebar a {
+  color: inherit;
+}
+.sidebar h4 {
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+}
+.sidebar ul {
+  padding-left: 1rem;
+  list-style-type: none;
+}
+.sidebar ul li.active > span {
+  font-weight: var(--font-weight-bold);
+}
+
+.navbar {
+  /* Place h2 and ul elements vertically */
+  flex-direction: column;
+  /* Do not auto-align children */
+  align-items: unset;
+}
+
+.chevron {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.chevron:after {
+  content: "\f077";
+}
+
+.collapsed .chevron:after {
+  content: "\f078";
+}
+
+.content {
+  /* Push content out from under the sidebar */
+  margin-left: var(--sidebar-width);
+}
+
+/* Landing */
+
+.jumbotron {
+  color: #ffffff;
+  font-size: 2rem;
+  font-family: Lato, sans-serif;
+  text-shadow: var(--shadow-color) 0 .125rem 0;
+  background-image: url("/images/banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--brand-green);
+}
+
+.features a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.features .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.features .row .feature-icon {
+  font-size: 5rem;
+  color: var(--brand-purple);
+}
+
+/* Update colors on hover over row */
+.features .row:hover {
+  background-color: var(--brand-green);
+}
+.features .row:hover .feature-icon {
+  color: #ffffff;
+}
+
+/* Small viewports */
+
+@media (max-width: 767px) {
+  /* Global */
+
+  body {
+    /* Adjust to new header height */
+    padding-top: var(--header-height-lg);
+  }
+
+  /* Header */
+
+  header {
+    /* Expand header height */
+    min-height: var(--header-height-lg);
+  }
+
+  .brand {
+    /* Occupy upper half of header */
+    flex: 100%;
+  }
+  .brand .logo {
+    /* Center logo in ancestors */
+    margin: 0 auto;
+  }
+  .brand .text {
+    /* Hide header text */
+    display: none;
+  }
+
+  .search-wrapper {
+    /* Occupy lower half of header */
+    flex: 100%;
+    /* Add left margin to bring hamburger menu into view */
+    margin-left: 2.25rem;
+  }
+
+  .search-wrapper form {
+    /* Reset styles on element (pt-3 pr-2) */
+    padding-top: 0 !important;
+    padding-right: 0.25rem !important;
+  }
+
+  .search-icon-left,
+  .search-icon-right,
+  .search-icon-hamburger {
+    /* Re-adjust vertical offset for icons */
+    top: 0.33rem;
+  }
+
+  .search-icon-hamburger {
+    /* Show hamburger menu */
+    display: inline-block;
+  }
+
+  /* Sidebar */
+
+  .sidebar {
+    /* Adjust to new header height */
+    top: var(--header-height-lg);
+  }
+  .sidebar:not(.show) {
+    /* Slide sidebar into viewport on when shown */
+    transform: translateX(calc(-1 * var(--sidebar-width)));
+  }
+
+  .content {
+    /* Sidebar is hidden, remove old left margin */
+    margin-left: 0;
+  }
 }

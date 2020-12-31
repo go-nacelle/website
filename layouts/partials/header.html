@@ -1,35 +1,31 @@
-<header class="header fixed-top">
-  <div class="branding flex-container">
-    <div class="logo">
-      <div class="navbar-brand">
-        <a href="/">
-          <img class="icon" src="/images/nacelle.png" alt="logo" />
-        </a>
+<header class="fixed-top flex-container">
+  <div class="brand pl-2">
+    <a class="logo" href="/">
+      <img src="/images/nacelle.png" alt="Nacelle Logo" />
+    </a>
 
-        <div class="text ml-2">
-          <a href="/">
-            <h1>Nacelle</h1>
-          </a>
-          <span>Go service framework</span>
-        </div>
-      </div>
+    <div class="text ml-2 pt-3">
+      <a href="/">
+        <h1 class="mb-0">Nacelle</h1>
+      </a>
+      <span>Go service framework</span>
+    </div>
+  </div>
+
+  <div class="search-wrapper position-relative">
+    <div class="search-icon-hamburger">
+      <i class="fa fa-bars"></i>
     </div>
 
-    <div class="search-wrapper position-relative pt-3">
-      <div class="search-icon-hamburger">
-        <i class="fa fa-bars"></i>
-      </div>
+    <form method="GET" action="/search" class="form-inline pt-3 pr-2">
+      <input class="form-control mx-2" type="search" id="search" name="q" placeholder="Search documentation...">
+    </form>
 
-      <form method="GET" action="/search" class="form-inline">
-        <input class="form-control mx-2" type="search" id="search" name="q" placeholder="Search documentation...">
-      </form>
-
-      <div class="search-icon-left">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="search-icon-right">
-        <kbd>/</kbd>
-      </div>
+    <div class="search-icon-left">
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="search-icon-right">
+      <kbd>/</kbd>
     </div>
   </div>
 </header>

@@ -1,12 +1,14 @@
-<ul class="breadcrumb">
-  {{ if isset .Params "category" }}
-    {{ partialCached "_breadcrumb" (dict "pages" $.Site.Pages "category" .Params.category) .Params.category }}
-  {{ end }}
+{{ if ne .Title "Documentation" }}
+  <ul class="breadcrumb">
+    {{ if isset .Params "category" }}
+      {{ partialCached "_breadcrumb" (dict "pages" $.Site.Pages "category" .Params.category) .Params.category }}
+    {{ end }}
 
-  <li class="breadcrumb-item active">
-    {{ .Title }}
-  </li>
-</ul>
+    <li class="breadcrumb-item active">
+      {{ .Title }}
+    </li>
+  </ul>
+{{ end }}
 
 {{ define "partials/_breadcrumb" }}
   {{ range where $.pages "Params.defines" $.category }}
