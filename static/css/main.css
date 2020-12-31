@@ -1,273 +1,31 @@
 body {
   padding-top: 70px;
-}
-
-.site-wrapper {
-  position: relative;
-}
-
-.header {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
-  background: #fff;
-}
-
-.branding {
-  min-height: 70px;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.search-wrapper {
-  flex: 50%;
-  margin: 0;
-  padding: 0;
-}
-
-#search {
-  width: 100%;
-  margin-left: 0.5rem !important;
-  padding-left: 45px;
-  padding-right: 30px;
-}
-
-.search-icon-left,
-.search-icon-right,
-.search-icon-hamburger {
-  position: absolute;
-  width: auto;
-  top: 22px;
-  color: grey;
-  margin-top: 0;
-}
-
-.search-icon-left {
-  left: 25px;
-}
-
-.search-icon-right {
-  right: 15px;
-}
-
-.search-icon-hamburger {
-  left: -25px;
-  cursor: pointer;
-}
-
-.logo {
-  flex: 50%;
-}
-
-.logo .navbar-brand {
-  padding-top: 0;
-  padding-left: 1rem;
-}
-
-.logo .icon {
-  width: 64px;
-  height: 64px;
-  margin-top: -1rem;
-}
-
-.logo .text {
-  color: #252930;
-  font-size: 1.2rem;
-  line-height: 1.2rem;
-  font-weight: bold;
   font-weight: 300;
-  display: inline-block;
-}
-
-.sidebar {
-  width: 300px;
-  position: fixed;
-  z-index: 10;
-  top: 70px;
-  height: calc(100% - 70px);
-  background: #fff;
-  overflow-y: auto;
-  scrollbar-color: rgba(0, 0, 0, 0.2) #f5f5f5;
-  scrollbar-width: thin;
-  transition: transform 0.35s ease-in-out;
-  box-shadow: 1px 0 5px 0 rgba(0, 0, 0, 0.1);
-}
-
-.sidebar ul {
-  list-style-type: none;
-}
-
-.sidebar ul {
-  padding-left: 1rem;
-}
-
-.sidebar ul li.active > span {
-  font-weight: 600;
-}
-
-.sidebar .chevron {
-  color: #6c757d;
-  font-size: .75rem;
-}
-
-.sidebar .chevron:after {
-  content: "\f077";
-}
-
-.sidebar .collapsed .chevron:after {
-  content: "\f078";
-}
-
-.nav {
-  overflow-y: auto;
-  padding: 1rem;
-}
-
-.navbar {
-  flex-direction: column;
-  align-items: unset;
-}
-
-.content {
-  margin-left: 300px;
-}
-
-@media (min-width: 768px) {
-  .search-icon-hamburger {
-    display: none; 
-  }
-
-  .search-wrapper {
-    padding-right: 1rem;
-  }
-
-  .search-icon-right {
-    right: 32px;
-  }
+  line-height: 1.7;
 }
 
 @media (max-width: 767px) {
   body {
     padding-top: 8rem;
   }
-
-  .branding {
-    min-height: 8rem;
-  }
-
-  .logo {
-    flex: 100%;
-    text-align: center;
-  }
-
-  .logo .text {
-    display: none;
-  }
-
-  .search-wrapper {
-    flex: 100%;
-    margin: 0;
-    padding-top: 0.5rem !important;
-    padding-bottom: 0.5rem !important;
-    margin-left: 2.5rem;
-  }
-
-  #search {
-    width: 100%;
-    margin-left: 0.5rem !important;
-  }
-
-  .search-icon-left,
-  .search-icon-right,
-  .search-icon-hamburger {
-    top: 14px;
-  }
-
-  .sidebar {
-    padding-top: 3rem;
-  }
-
-  .sidebar:not(.show) {
-    transform: translateX(-300px);
-  }
-
-  .content {
-    margin-left: 0;
-  }
 }
-
-/* --------------------------------------------*/
-
-.landing .navbar {
-  background-image: none;
-  background-color: rgba(0, 0, 0, 0);
-  border-bottom: 0;
-}
-
-.jumbotron {
-  margin-top: -54px;
-  background-color: #92b5ba;
-  background-image: url("/images/banner.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-align: center;
-  font-family: Lato, sans-serif;
-  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 0px;
-  margin-bottom: 0px;
-  padding: 10px 0;
-}
-
-.jumbotron p {
-  font-weight: 300;
-  font-size: 32px;
-  color: #fff;
-}
-
-.features .row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.features .row:hover {
-  background-color: #92b5ba;
-}
-
-.features .row:hover .feature-icon {
-  color: #ffffff;
-}
-
-.feature-text a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.feature-icon {
-  padding: 1rem 0;
-  text-align: center;
-  font-size: 5em;
-  color: #a992ba;
-}
-
-.open-source {
-  padding: 20px;
-  font-weight: 300;
-  text-align: center;
-}
-
-/* --------------------------------------------*/
 
 /* clears the 'X' from Internet Explorer */
-input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
-input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+input[type="search"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type="search"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
 
 /* clears the 'X' from Chrome */
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration { display: none; }
-
-kbd {
-  color: #3c4257;
-  background: #f7fafc;
-  border-radius: 4px;
-  border: 1px solid #e3e8ee;
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
 }
