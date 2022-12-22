@@ -1,7 +1,7 @@
 # Nacelle Docs Website
 
-This website is built via [hugo](https://gohugo.io/) and continuously deployed via [CircleCI](https://circleci.com/).
+This repository powers [nacelle.dev](https://nacelle.dev).
 
-### Developing Locally
+To render the site locally, run `hugo serve` and visit [http://localhost:1313](http://localhost:1313).
 
-Running `hugo serve` will start a local live-reload server on port 1313. Editing the markdown files in `content`, the theme in `layout`, or the style and image files in `static` will trigger a rebuild.
+The `main` branch is continuously deployed. The site will be built by GitHub Actions on push, written to a Space on DigitalOcean, and requests will be made to the nginx frontend to bust the on-disk cache of the old site.
