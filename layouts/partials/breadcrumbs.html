@@ -1,0 +1,39 @@
+{{ if ne .Title "Documentation" }}
+  <ul class="breadcrumb">
+    {{ if isset .Params "category" }}
+      {{ partialCached "_breadcrumb" (dict
+        "pages" $.Site.Pages
+        "category" .Params.category
+      ) .Params.category }}
+    {{ end }}
+
+    <li class="breadcrumb-item active">
+      {{ if .Params.SidebarTitle }}
+        {{ .Params.SidebarTitle }}
+      {{ else }}
+        {{ .Title }}
+      {{ end }}
+    </li>
+  </ul>
+{{ end }}
+
+{{ define "partials/_breadcrumb" }}
+  {{ range where $.pages "Params.defines" $.category }}
+    {{ if isset .Params "category"  }}
+      {{ partialCached "_breadcrumb" (dict
+        "pages" $.pages
+        "category" .Params.category
+      ) .Params.category }}
+    {{ end }}
+
+    <li class="breadcrumb-item">
+      <a href="{{ .Permalink }}">
+        {{ if .Params.SidebarTitle }}
+          {{ .Params.SidebarTitle }}
+        {{ else }}
+          {{ .Title }}
+        {{ end }}
+      </a>
+    </li>
+  {{ end }}
+{{ end }}

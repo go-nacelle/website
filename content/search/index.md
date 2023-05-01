@@ -1,5 +1,5 @@
-+++
-title = "Search results"
-+++
+---
+title: "Search results"
+---
 
 {{< partial "search-results" >}}

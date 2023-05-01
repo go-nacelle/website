@@ -1,17 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="en">
   {{ partial "head.html" . }}
 
   <body>
-    {{ if (eq .Type "docs") }}
-      {{ partial "docs-page.html" . }}
-    {{ else if (eq .Type "page") }}
-      {{ partial "landing.html" . }}
-    {{ else }}
-      {{ partial "content-page.html" . }}
-    {{ end }}
+    {{ partialCached "header.html" . }}
 
-    {{ partial "footer.html" . }}
+    <div class="position-relative">
+      <div class="sidebar">
+        <nav class="nav navbar p-3">
+          {{ partial "sidebar.html" . }}
+        </nav>
+      </div>
+
+
+      <div class="content">
+        <div class="container">
+          {{ partial "breadcrumbs.html" . }}
+          {{ .Content }}
+        </div>
+      </div>
+    </div>
+
+    {{ partialCached "scripts.html" . }}
   </body>
 </html>

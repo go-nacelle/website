@@ -1,1 +1,3 @@
-{{ partial (.Get 0) (dict "Site" $.Site) }}
+{{ partial (printf "content-pages/%s" (.Get 0)) (dict
+  "Site" $.Site
+) }}
