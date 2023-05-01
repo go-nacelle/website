@@ -7,7 +7,7 @@ index: 1
 
 ## Bootstrapper functional options
 
-The [`github.com/go-nacelle/nacelle`](https://github.com/go-nacelle/nacelle) package provides the following functional options to supply the [bootstrapper constructor](https://pkg.go.dev/github.com/go-nacelle/nacelle#NewBootstrapper).
+The [`github.com/go-nacelle/nacelle`](https://github.com/go-nacelle/nacelle) package provides the following functional options to supply the [bootstrapper constructor](https://pkg.go.dev/github.com/go-nacelle/nacelle/v2#NewBootstrapper).
 
 ---
 
@@ -15,11 +15,11 @@ The following options can be supplied to the bootstrapper to tune its behavior.
 
 #### WithContextFilter
 
-[WithContextFilter](https://pkg.go.dev/github.com/go-nacelle/nacelle#WithContextFilter) sets a function that accepts a context object and returns a possibly modified context object after the initial health, log, service, and configuration objects are inserted. This allows the user to add additional objects available to all processes prior to initialization.
+[WithContextFilter](https://pkg.go.dev/github.com/go-nacelle/nacelle/v2#WithContextFilter) sets a function that accepts a context object and returns a possibly modified context object after the initial health, log, service, and configuration objects are inserted. This allows the user to add additional objects available to all processes prior to initialization.
 
 #### WithConfigSourcer
 
-[WithConfigSourcer](https://pkg.go.dev/github.com/go-nacelle/nacelle#WithConfigSourcer) changes the default source for configuration variables. The default sourcer is the application environment using the name given to the bootstrapper as a prefix.
+[WithConfigSourcer](https://pkg.go.dev/github.com/go-nacelle/nacelle/v2#WithConfigSourcer) changes the default source for configuration variables. The default sourcer is the application environment using the name given to the bootstrapper as a prefix.
 
 ```go
 func main() {
@@ -37,7 +37,7 @@ func setup(processes nacelle.ProcessContainer, services nacelle.ServiceContainer
 
 #### WithConfigMaskedKeys
 
-[WithConfigMaskedKeys](https://pkg.go.dev/github.com/go-nacelle/nacelle#WithConfigMaskedKeys) sets the keys to mask from log messages when loading configuration data. This is used to hide sensitive configuration values.
+[WithConfigMaskedKeys](https://pkg.go.dev/github.com/go-nacelle/nacelle/v2#WithConfigMaskedKeys) sets the keys to mask from log messages when loading configuration data. This is used to hide sensitive configuration values.
 
 ```go
 func main() {
@@ -53,7 +53,7 @@ func setup(processes nacelle.ProcessContainer, services nacelle.ServiceContainer
 
 #### WithLoggingInitFunc
 
-[WithLoggingInitFunc](https://pkg.go.dev/github.com/go-nacelle/nacelle#WithLoggingInitFunc) sets the factory used to create the base logger. This can be set to supply a different log backend.
+[WithLoggingInitFunc](https://pkg.go.dev/github.com/go-nacelle/nacelle/v2#WithLoggingInitFunc) sets the factory used to create the base logger. This can be set to supply a different log backend.
 
 ```go
 func main() {
@@ -79,7 +79,7 @@ func setup(processes nacelle.ProcessContainer, services nacelle.ServiceContainer
 
 #### WithLoggingFields
 
-[WithLoggingFields](https://pkg.go.dev/github.com/go-nacelle/nacelle#WithLoggingFields) adds additional fields to every log message. This can be useful to present build information (time, hash, branch), process name, or operating environment.
+[WithLoggingFields](https://pkg.go.dev/github.com/go-nacelle/nacelle/v2#WithLoggingFields) adds additional fields to every log message. This can be useful to present build information (time, hash, branch), process name, or operating environment.
 
 ```go
 func main() {

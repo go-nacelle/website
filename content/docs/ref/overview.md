@@ -43,13 +43,13 @@ Environment variables supplied to a Nacelle process to dynamically change behavi
 
 ### API documentation
 
-Documentation on [pkg.go.dev](https://pkg.go.dev/github.com/go-nacelle/nacelle).
+Documentation on [pkg.go.dev](https://pkg.go.dev/github.com/go-nacelle/nacelle/v2).
 
 - Core functionality
-  - [github.com/go-nacelle/config](https://pkg.go.dev/github.com/go-nacelle/config)
-  - [github.com/go-nacelle/log](https://pkg.go.dev/github.com/go-nacelle/log)
-  - [github.com/go-nacelle/process](https://pkg.go.dev/github.com/go-nacelle/process)
-  - [github.com/go-nacelle/service](https://pkg.go.dev/github.com/go-nacelle/service)
+  - [github.com/go-nacelle/config](https://pkg.go.dev/github.com/go-nacelle/config/v3)
+  - [github.com/go-nacelle/log](https://pkg.go.dev/github.com/go-nacelle/log/v2)
+  - [github.com/go-nacelle/process](https://pkg.go.dev/github.com/go-nacelle/process/v2)
+  - [github.com/go-nacelle/service](https://pkg.go.dev/github.com/go-nacelle/service/v2)
 - Frameworks
   - [github.com/go-nacelle/chevron](https://pkg.go.dev/github.com/go-nacelle/chevron)
   - [github.com/go-nacelle/scarf](https://pkg.go.dev/github.com/go-nacelle/scarf)

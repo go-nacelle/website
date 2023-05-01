@@ -41,7 +41,7 @@ func (p *Process) Init(ctx context.Context) error {
 
 Configuration structs are defined by the application or library developer with the fields needed by the package in which they are defined. Each field is tagged with a **source hint** (e.g. an environment variable name, a key in a YAML file) that instructs a particular _sourcer_ how to load a value and, optionally, default values and basic validation. 
 
-A [sourcer](https://pkg.go.dev/github.com/go-nacelle/config#Sourcer) reads values from a particular configuration source based on the tags of a given struct to be populated. Sourcers advertise a set of struct tags that control their behavior. The example above (presumably) uses an environment sourcer, thus the configuration struct's _source hints_ refers to the process environment. All sources support the `default` and `required` tags (which are mutually exclusive). Tagged fields must be exported (so the user supplied values can be assigned to them).
+A [sourcer](https://pkg.go.dev/github.com/go-nacelle/config/v3#Sourcer) reads values from a particular configuration source based on the tags of a given struct to be populated. Sourcers advertise a set of struct tags that control their behavior. The example above (presumably) uses an environment sourcer, thus the configuration struct's _source hints_ refers to the process environment. All sources support the `default` and `required` tags (which are mutually exclusive). Tagged fields must be exported (so the user supplied values can be assigned to them).
 
 The values that are loaded into non-string field of a configuration struct are interpreted as JSON. Supplying the process the (partial) environment `CASSANDRA_HOSTS='["host1", "host2", "host3"]'` would populate the struct's `CassandraHosts` field with a slice containing the values `host1`, `host2`, and `host3`. The defaults for such fields can also be supplied as a JSON-encoded string, but must be escaped to preserve the format of the struct tag.
 
@@ -53,7 +53,7 @@ type Config struct {
 
 Loading configuration values also works with structs containing composite fields, which is a good way to share a "core" of configuration values shared by distinct components of an application.
 
-While struct tags are static, they can be dynamically altered by supplying a [tag modifier](https://pkg.go.dev/github.com/go-nacelle/config#TagModifier) to the configuration loader. Tag modifiers make certain tasks possible, such as re-using a configuration struct with a different prefix, or conditionally disabling required attribute validation based on some runtime property.
+While struct tags are static, they can be dynamically altered by supplying a [tag modifier](https://pkg.go.dev/github.com/go-nacelle/config/v3#TagModifier) to the configuration loader. Tag modifiers make certain tasks possible, such as re-using a configuration struct with a different prefix, or conditionally disabling required attribute validation based on some runtime property.
 
 In the example above, the required configuration is populated and stored at process initialization time. The `Load` method of the configuration loader fails if a value from the source cannot be converted into the correct type, a value from the source cannot be unmarshalled into the target shape, or is required and not supplied. 
 

@@ -39,7 +39,7 @@ requestLogger.Info("Accepted request from %s", remoteAddr)
 
 ### Replay adapter
 
-The [replay logger](https://pkg.go.dev/github.com/go-nacelle/log#ReplayLogger) is an extension of the logger interface that supports journaling log messages and conditionally re-writing them at a different log level. This is useful in circumstances where all the debug logs for a particular request need to be available without making all debug logs in the process available. Messages which are replayed at a higher level will keep the original message timestamp (if supplied), or use the time the log was first published (if not supplied). Each message will also be sent with an additional field called `replayed-from-level` with a value equal to the original level of the message.
+The [replay logger](https://pkg.go.dev/github.com/go-nacelle/log/v2#ReplayLogger) is an extension of the logger interface that supports journaling log messages and conditionally re-writing them at a different log level. This is useful in circumstances where all the debug logs for a particular request need to be available without making all debug logs in the process available. Messages which are replayed at a higher level will keep the original message timestamp (if supplied), or use the time the log was first published (if not supplied). Each message will also be sent with an additional field called `replayed-from-level` with a value equal to the original level of the message.
 
 ```go
 requestLogger := NewReplayAdapter(
@@ -58,7 +58,7 @@ if requestTookTooLong() {
 
 ### Rollup adapter
 
-The [rollup logger](https://pkg.go.dev/github.com/go-nacelle/log#NewRollupAdapter) is an extension of the logger interface that supports collapsing similar log messages into a multiplicity. This is intended to be used with a chatty subsystem that only logs a handful of messages for which a higher frequency does not provide a benefit (for example, failure to connect to a Redis cache during a network partition). A rollup begins once two messages with the same format string are seen within the rollup window period. During a rollup, all log messages (except for the first in the window) are discarded but counted, and the **first** log message in that window will be sent at the end of the window period with an additional field called `rollup-multiplicity` with a value equal to the number of logs in that window.
+The [rollup logger](https://pkg.go.dev/github.com/go-nacelle/log/v2#NewRollupAdapter) is an extension of the logger interface that supports collapsing similar log messages into a multiplicity. This is intended to be used with a chatty subsystem that only logs a handful of messages for which a higher frequency does not provide a benefit (for example, failure to connect to a Redis cache during a network partition). A rollup begins once two messages with the same format string are seen within the rollup window period. During a rollup, all log messages (except for the first in the window) are discarded but counted, and the **first** log message in that window will be sent at the end of the window period with an additional field called `rollup-multiplicity` with a value equal to the number of logs in that window.
 
 ```go
 logger := NewRollupAdapter(

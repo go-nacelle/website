@@ -7,7 +7,7 @@ index: 1
 
 ## Booting
 
-The [`github.com/go-nacelle/nacelle`](https://github.com/go-nacelle/nacelle) package provides a common [bootstrapper](https://pkg.go.dev/github.com/go-nacelle/nacelle#Bootstrapper) object that initializes and supervises the core framework behaviors.
+The [`github.com/go-nacelle/nacelle`](https://github.com/go-nacelle/nacelle) package provides a common [bootstrapper](https://pkg.go.dev/github.com/go-nacelle/nacelle/v2#Bootstrapper) object that initializes and supervises the core framework behaviors.
 
 ---
 
