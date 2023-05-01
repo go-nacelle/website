@@ -1,11 +1,121 @@
-{{ $permalink := .Permalink }}
+<h4>
+  <a href="/docs">Documentation</a>
+</h4>
 
-<div class="side-menu">
-  <h4>Guides</h4>
+<ul>
+  {{ range $category := .Site.Params.categories }}
+    {{ partial "_sidebar_category" (dict
+      "pages" $.Site.Pages
+      "permalink" $.Permalink
+      "category" $category
+    ) }}
+  {{ end }}
+</ul>
 
-  <div id="sidebar">
-    {{ range $category := .Site.Params.categories }}
-      {{ partial "category.html" (dict "root" $ "category" $category "permalink" $permalink) }}
+{{ define "partials/_sidebar_category" }}
+  {{ range where $.pages "Params.defines" $.category }}
+    {{ $active := (partial "_contains_category_cached" (dict
+      "pages" $.pages
+      "target" $.permalink
+      "current" .Permalink
+      "category" .Params.defines
+    )) }}
+
+    <li class="{{ if $active }}active{{ end }}">
+      {{ partial "_category_span" (dict
+        "title" .Title
+        "sidebarTitle" .Params.SidebarTitle
+        "noSidebarLink" .Params.NoSidebarLink
+        "noRender" .Params.NoRender
+        "permalink" .Permalink
+        "current" $.permalink
+      ) }}
+
+      {{ if (and (isset .Params "defines") (gt (len (where (where $.pages "Params.category" $.category) "Params.NoSidebarLink" "!=" true)) 0)) }}
+        <a data-toggle="collapse" href="#ul-{{ .Params.defines }}" aria-expanded="{{ $active }}" class="{{ if (not $active) }}collapsed{{ end }}">
+          <i class="chevron fa fa-fw"></i>
+        </a>
+
+        <ul class="collapse {{ if $active }}show{{ end }}" id="ul-{{ .Params.defines }}">
+          {{ range sort (where $.pages "Params.category" $.category) "Params.index" }}
+            {{ if isset .Params "defines" }}
+              {{ partial "_sidebar_category" (dict
+                "pages" $.pages
+                "permalink" $.permalink
+                "category" .Params.defines
+              ) }}
+            {{ else }}
+              {{ $active := (partial "_contains_category_cached" (dict
+                "pages" $.pages
+                "target" $.permalink
+                "current" .Permalink
+                "category" .Params.defines
+              )) }}
+
+              <li class="{{ if $active }}active{{ end }}">
+                {{ partial "_category_span" (dict
+                  "title" .Title
+                  "sidebarTitle" .Params.SidebarTitle
+                  "noSidebarLink" .Params.NoSidebarLink
+                  "noRender" .Params.NoRender
+                  "permalink" .Permalink
+                  "current" $.permalink
+                ) }}
+              </li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      {{ end }}
+    </li>
+  {{ end }}
+{{ end }}
+
+{{ define "partials/_contains_category_cached" }}
+  {{ return (partialCached "_contains_category" (dict
+    "pages" $.pages
+    "target" $.target
+    "current" .current
+    "category" .category
+  ) $.target $.current $.category) }}
+{{ end }}
+
+{{ define "partials/_contains_category" }}
+  {{ $class := false }}
+
+  {{ if eq $.target $.current }}
+    {{ $class = true }}
+  {{ else if $.category }}
+    {{ range where $.pages "Params.category" $.category }}
+      {{ with partialCached "_contains_category" (dict
+        "pages" $.pages
+        "target" $.target
+        "current" .Permalink
+        "category" .Params.defines
+      ) $.target .Permalink .Params.defines }}
+        {{ if . }}
+          {{ $class = . }}
+        {{ end }}
+      {{ end }}
     {{ end }}
-  </div>
-</div>
+  {{ end }}
+
+  {{ return $class }}
+{{ end }}
+
+{{ define "partials/_category_span" }}
+  <span>
+    {{ if $.noSidebarLink }}
+      <!-- display nothing -->
+    {{ else if eq $.current $.permalink }}
+      {{ partial "_category_title" . }}
+    {{ else if $.noRender }}
+      <span>{{ partial "_category_title" . }}</span>
+    {{ else }}
+      <a href="{{ $.permalink }}">{{ partial "_category_title" . }}{{ $.noRender }}</a>
+    {{ end }}
+  </span>
+{{ end }}
+
+{{ define "partials/_category_title" }}
+  {{ if $.sidebarTitle }}{{ $.sidebarTitle }}{{ else }}{{ $.title }}{{ end }}
+{{ end }}

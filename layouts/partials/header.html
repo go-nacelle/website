@@ -1,17 +1,31 @@
-<div class="navbar-jumbotron">
-  <nav class="navbar navbar-expand navbar-inverse sticky-top" role="navigation">
-    <div class="container">
-      <a class="navbar-brand" href="/">Nacelle</a>
+<header class="fixed-top flex-container">
+  <div class="brand pl-2">
+    <a class="logo" href="/">
+      <img src="/images/nacelle.png" alt="Nacelle Logo" />
+    </a>
 
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="/docs/quickstart">Docs</a>
-        <a class="nav-item nav-link" href="https://github.com/go-nacelle/example">Example</a>
-        <a class="nav-item nav-link" href="https://github.com/go-nacelle"><i class="fab fa-github"></i></a>
-
-        <form method="GET" action="/search" class="form-inline my-2 ml-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" id="search" name="q" placeholder="Search">
-        </form>
-      </div>
+    <div class="text ml-2 pt-3">
+      <a href="/">
+        <h1 class="mb-0">Nacelle</h1>
+      </a>
+      <span>Go service framework</span>
     </div>
-  </nav>
-</div>
+  </div>
+
+  <div class="search-wrapper position-relative">
+    <div class="search-icon-hamburger">
+      <i class="fa fa-bars"></i>
+    </div>
+
+    <form method="GET" action="/search" class="form-inline pt-3 pr-2">
+      <input class="form-control mx-2" type="search" id="search" name="q" placeholder="Search documentation...">
+    </form>
+
+    <div class="search-icon-left">
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="search-icon-right">
+      <kbd>/</kbd>
+    </div>
+  </div>
+</header>

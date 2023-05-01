@@ -1,220 +1,199 @@
-/* Bootstrap Overrides
- * --------------------------------------------*/
+:root {
+  /* Layout */
+  --logo-size: 4rem;
+  --header-height-sm: 4.375rem;
+  --header-height-lg: 8rem;
+  --sidebar-width: 16rem;
+  
+  /* Typography */
+  --font-weight-regular: 300;
+  --font-weight-bold: 600;
+  --line-height-regular: 1.7;
 
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: 'Open Sans','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.4;
+  /* Colors */
+  --color-dark: #212529;
+  --color-grey: #6c757d;
+  --color-bluegreen: #92b5ba;
+  --color-purple: #a992ba;
+  --color-shadow: rgba(0, 0, 0, 0.35);
 }
 
-pre {
-  border: 0;
-  background-color: #1e1e1e;
+/* Global */
+
+body {
+  line-height: var(--line-height-regular);
+  font-weight: var(--font-weight-regular);
+
+  /* Push content out from under the header */
+  padding-top: var(--header-height-sm);
 }
 
-dd + dt {
-  margin-top: 10px;
+/* Remove input clear icon from inputs (Chrome) */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
 }
 
-dd {
-  margin-left: 40px;
-  padding-right: 40px;
+/* Remove input clear icon from inputs (IE, Edge) */
+input[type="search"]::-ms-clear,
+input[type="search"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
-table {
-  margin-bottom: 1rem;
-  width: 100%;
+kbd {
+  color: #3c4257;
+  background: #f7fafc;
+  border-radius: 0.25rem;
+  border: 1px solid #e3e8ee;
 }
 
-table th {
-  border-top: 1px solid #dee2e6;
-  border-bottom: 2px solid #dee2e6;
+/* Header */
+
+header {
+  display: flex;
+  flex-flow: wrap;
+  background: #fff;
+  box-shadow: 0 0 .25rem 0 var(--color-shadow);
+  min-height: var(--header-height-sm);
 }
 
-table th,
-table td {
-  padding: .75rem;
+.brand {
+  /* Occupy left half of header */
+  flex: 50%;
+  display: flex;
 }
-
-table tbody tr:nth-of-type(2n+1) {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.highlight table tbody tr {
-  background-color: inherit;
-}
-
-/* Stick Footer
- * --------------------------------------------*/
-
-#site-wrapper {
-  min-height: 100%;
-  margin-bottom: -100px;
-  padding-bottom: 20px;
-}
-
-#site-wrapper:after {
-  content: "";
-  display: block;
-}
-
-footer, #site-wrapper:after {
-  height: 100px;
-}
-
-footer {
-  text-align: center;
-  background-color: #92b5ba;
-  font-weight: 300;
-  font-size: 14px;
-  color: #ffffff;
-  padding-top: 20px;
-}
-
-@media screen and (max-width: 767px) {
-  footer {
-    padding-top: 10px;
-  }
-}
-
-/* Navbar
- * --------------------------------------------*/
-
-.navbar {
-  border-bottom: 0px;
-  background-color: #92b5ba;
-  background-image: url("/images/banner.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.navbar-inverse .navbar-brand,
-.navbar-inverse .navbar-nav > a {
-  color: #fff;
-}
-
-.navbar-brand {
-  font-family: Lato, sans-serif;
-  font-weight: 400;
-}
-
-/* Side Menu
- * --------------------------------------------*/
-
-.side-menu h4 {
-  margin-bottom: 25px;
-}
-
-.side-menu span {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.side-menu .category:not(:first-child) {
-  margin-top: 20px;
-}
-
-.side-menu div .docpage {
-  padding-left: 20px;
-}
-
-.side-menu .current::before {
-  content: "\f054";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 600;
-  font-size: .75rem;
-  margin-left: -5px;
-  padding-right: 5px;
-}
-
-.side-menu .current a {
-  color: #666;
-}
-
-.side-menu .current a:hover {
+.brand a:hover {
   text-decoration: none;
 }
-
-@media screen and (max-width: 767px) {
-  .collapser:hover {
-    text-decoration: none;
-  }
-
-  .collapser:after {
-    content: "\f078";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 600;
-    font-size: .5rem;
-    padding-left: 5px;
-    vertical-align: middle;
-  }
-
-  .collapser.collapsed:after {
-    content: "\f054";
-  }
+.brand img {
+  width: var(--logo-size);
+  height: var(--logo-size);
+}
+.brand .text h1 {
+  color: var(--color-dark);
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  font-weight: var(--font-weight-regular);
 }
 
-@media screen and (min-width: 768px) {
-  .collapse:not(.show) {
-    display: block;
-    height: auto !important;
-    visibility: visible;
-  }
-
-  .collapsing {
-    position: relative;
-    height: unset !important;
-    overflow: hidden;
-  }
+.search-wrapper {
+  /* Occupy right half of header */
+  flex: 50%;
 }
 
-/* Doc Pages
- * --------------------------------------------*/
-
-.sidebar, .article-content {
-  padding-top: 20px;
+#search {
+  width: 100%;
+  /* Ensure text does not overlap search icon */
+  padding-left: 2.25rem;
 }
 
-.article-content {
-  line-height: 1.6em;
+.search-icon-left,
+.search-icon-right,
+.search-icon-hamburger {
+  position: absolute;
+  top: 1.33rem;
+  color: var(--color-grey);
+}
+.search-icon-left {
+  left: 1.25rem;
+}
+.search-icon-right {
+  right: 1.5rem;
+}
+.search-icon-hamburger {
+  left: -1.25rem;
+  display: none;
+  cursor: pointer;
 }
 
-.docmeta {
-  color: rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid #dee2e6;
-  margin-bottom: 1rem;
-  padding: 5px 0;
+/* Sidebar */
+
+.sidebar {
+  background: #fff;
+  width: var(--sidebar-width);
+  
+  /* Have sidebar float attached to left window border and header element */
+  position: fixed;
+  top: var(--header-height-sm);
+  height: calc(100% - var(--header-height-sm));
+  
+  /* Slide sidebar in and out of frame by adjusting element coordinates */
+  transition: transform 0.35s ease-in-out;
+  box-shadow: 0 0 0.25rem 0 var(--color-shadow);
+
+  /* Enable scroll bar */
+  overflow-y: auto;
+
+  /* Style scroll bar */
+  scrollbar-color: rgba(0, 0, 0, 0.2) #f5f5f5;
+  scrollbar-width: thin;
+}
+.sidebar a {
+  color: inherit;
+}
+.sidebar h4 {
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+}
+.sidebar ul {
+  padding-left: 1rem;
+  list-style-type: none;
+}
+.sidebar ul li.active > span {
+  font-weight: var(--font-weight-bold);
 }
 
-/* Landing Page
- * --------------------------------------------*/
-
-.landing .navbar {
-  background-image: none;
-  background-color: rgba(0, 0, 0, 0);
-  border-bottom: 0;
+.navbar {
+  /* Place h2 and ul elements vertically */
+  flex-direction: column;
+  /* Do not auto-align children */
+  align-items: unset;
 }
+
+.chevron {
+  color: var(--color-grey);
+  font-size: 0.75rem;
+}
+
+.chevron:after {
+  content: "\f077";
+}
+
+.collapsed .chevron:after {
+  content: "\f078";
+}
+
+.content {
+  /* Push content out from under the sidebar */
+  margin-left: var(--sidebar-width);
+}
+
+/* Table of contents */
+
+.toc {
+  float: right;
+}
+
+/* Landing */
 
 .jumbotron {
-  margin-top: -54px;
-  background-color: #92b5ba;
+  color: #ffffff;
+  font-size: 2rem;
+  font-family: Lato, sans-serif;
+  text-shadow: var(--color-shadow) 0 .125rem 0;
   background-image: url("/images/banner.png");
   background-repeat: no-repeat;
   background-size: cover;
-  text-align: center;
-  font-family: Lato, sans-serif;
-  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 0px;
-  margin-bottom: 0px;
-  padding: 10px 0;
+  background-color: var(--color-bluegreen);
 }
 
-.jumbotron p {
-  font-weight: 300;
-  font-size: 32px;
-  color: #fff;
+.features a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .features .row {
@@ -222,54 +201,87 @@ footer {
   justify-content: center;
   align-items: center;
 }
-
-.features .row:hover {
-  background-color: #92b5ba;
+.features .row .feature-icon {
+  font-size: 5rem;
+  color: var(--color-purple);
 }
 
+/* Update colors on hover over row */
+.features .row:hover {
+  background-color: var(--color-bluegreen);
+}
 .features .row:hover .feature-icon {
   color: #ffffff;
 }
 
-.feature-text a {
-  color: inherit;
-  text-decoration: none;
-}
+/* Small viewports */
 
-.feature-icon {
-  padding: 1rem 0;
-  text-align: center;
-  font-size: 5em;
-  color: #a992ba;
-}
+@media (max-width: 767px) {
+  /* Global */
 
-.open-source {
-  padding: 20px;
-  font-weight: 300;
-  text-align: center;
-}
+  body {
+    /* Adjust to new header height */
+    padding-top: var(--header-height-lg);
+  }
 
-.callout-container {
-  margin-top: 10px;
-  margin-bottom: -10px;
-}
+  /* Header */
 
-.callout {
-  width: 100%;
-  text-align: center;
-}
+  header {
+    /* Expand header height */
+    min-height: var(--header-height-lg);
+  }
 
-/* Not Found
- * --------------------------------------------*/
+  .brand {
+    /* Occupy upper half of header */
+    flex: 100%;
+  }
+  .brand .logo {
+    /* Center logo in ancestors */
+    margin: 0 auto;
+  }
+  .brand .text {
+    /* Hide header text */
+    display: none;
+  }
 
-.notfound {
-  text-align: center;
-  padding-top: 50px;
-}
+  .search-wrapper {
+    /* Occupy lower half of header */
+    flex: 100%;
+    /* Add left margin to bring hamburger menu into view */
+    margin-left: 2.25rem;
+  }
 
-/* Search Results
- * --------------------------------------------*/
+  .search-wrapper form {
+    /* Reset styles on element (pt-3 pr-2) */
+    padding-top: 0 !important;
+    padding-right: 0.25rem !important;
+  }
 
-.search-results {
-  margin-top: 20px;
+  .search-icon-left,
+  .search-icon-right,
+  .search-icon-hamburger {
+    /* Re-adjust vertical offset for icons */
+    top: 0.33rem;
+  }
+
+  .search-icon-hamburger {
+    /* Show hamburger menu */
+    display: inline-block;
+  }
+
+  /* Sidebar */
+
+  .sidebar {
+    /* Adjust to new header height */
+    top: var(--header-height-lg);
+  }
+  .sidebar:not(.show) {
+    /* Slide sidebar into viewport on when shown */
+    transform: translateX(calc(-1 * var(--sidebar-width)));
+  }
+
+  .content {
+    /* Sidebar is hidden, remove old left margin */
+    margin-left: 0;
+  }
 }

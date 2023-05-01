@@ -1,20 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="en">
-{{ partial "head.html" . }}
+  {{ partial "head.html" . }}
 
-<body>
-  <div id="site-wrapper">
-    {{ partial "header.html" . }}
+  <body>
+    {{ partialCached "header.html" . }}
 
-    <main role="main">
-      <div class="container notfound">
-        <h2>Page not found!</h2>
-        <p>Sorry, but the page you were looking for could not be found.</p>
-      </article>
-    </main>
-  </div>
+    <div class="position-relative">
+      <div class="sidebar">
+        <nav class="nav navbar p-3">
+          {{ partial "sidebar.html" . }}
+        </nav>
+      </div>
 
-  {{ partial "footer.html" . }}
-</body>
+      <div class="content">
+        <div class="container">
+          <h2>Page not found!</h2>
+          <p>Sorry, but the page you were looking for could not be found.</p>
+        </div>
+      </div>
+    </div>
+
+    {{ partialCached "scripts.html" . }}
+  </body>
 </html>
