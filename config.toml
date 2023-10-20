@@ -18,7 +18,6 @@ disableKinds = ['taxonomy', 'taxonomyTerm', 'RSS']
   author = 'Eric Fritz'
   dateformat = '01/02/2006'
   index_page = '/docs'
-  resources_root = 'https://assets.nacelle.dev'
   categories = ['intro', 'topics', 'ref', 'howtos']
 
 [outputs]
